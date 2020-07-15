@@ -1,9 +1,11 @@
 <!doctype html>
-<html lang="p-br">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/icon">
+    <link rel="icon" href="img/favicon.ico" type="image/icon">
 
     <link rel="stylesheet" href="bootstrap-files/bootstrap.min.css">
     <!--  <link rel="stylesheet" href="font-icons/style.css"> -->
@@ -73,61 +75,78 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#"><i class="icone-house-door-fill"></i> Home</a>
+                        <a href="#"><i class="icone-house-door-fill"></i> <span>Home</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="icone-archive-fill"></i> Menu page</a>
+                        <a href="#"><i class="icone-archive-fill"></i> <span>Menu page</span></a>
                     </li>
                     <li class="active">
-                        <a data-toggle="collapse" href="#menu1" role="button" aria-expanded="false" aria-controls="menu1">
-                            <i class="icone-folder-symlink-fill"></i> Menu more link <span class="icone-chevron-down"></span>
+                        <a data-toggle="collapse" href="#submenu1" aria-expanded="false">
+                            <i class="icone-folder-symlink-fill"></i> <span>Menu more link </span>
+                            <span class="icone-chevron-down"></span>
                         </a>
-                        <ul class="collapse multi-collapse" id="menu1">
+                        <ul class="collapse" id="submenu1">
                             <li>
-                                <a href="#"> Sub-menu 1</a>
+                                <a href="#"> <span>Sub-menu 1</span></a>
                             </li>
                             <li class="active">
-                                <a href="#"> Sub-menu 2</a>
+                                <a href="#"> <span>Sub-menu 2</span></a>
                             </li>
                             <li>
-                                <a href="#"> Sub-menu 3</a>
+                                <a href="#"> <span>Sub-menu 3</span></a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icone-award-fill"></i> Documentation</a>
+                        <a href="#"><i class="icone-award-fill"></i> <span>Documentation</span></a>
                     </li>
                     <li>
-                        <a data-toggle="collapse" href="#menu2" role="button" aria-expanded="false" aria-controls="menu2">
-                            <i class="icone-bar-chart-fill"></i> Menu end
+                        <a data-toggle="collapse" href="#submenu2" aria-expanded="false">
+                            <i class="icone-bar-chart-fill"></i> <span>Menu end </span>
+                            <span class="icone-chevron-down"></span>
                         </a>
-                        <ul class="collapse multi-collapse" id="menu2">
+                        <ul class="collapse" id="submenu2">
                             <li>
-                                <a href="#"> Sub-menu B</a>
+                                <a href="#"> <span>Sub-menu B</span></a>
                             </li>
                             <li>
-                                <a href="#"> Sub-menu B</a>
+                                <a href="#"> <span>Sub-menu B</span></a>
                             </li>
                         </ul>
                     </li>
+
                 </ul>
             </nav>
+            <i class="icone-award-fill desenvolvimento-mobile"></i>
             <div class="desenvolvimento">
+                <a href="https://www.behance.net/marconipacheco" target="_blank" rel="noopener">Marconi's Behance</a>
+                <a href="https://github.com/marconip" target="_blank" rel="noopener">Marconi's GitHub</a>
                 <p>Developed by <a href="https://www.linkedin.com/in/marconipacheco" target="_blank"
                         rel="noopener">Marconi Pacheco</a></p>
-                <a href="https://github.com/marconip" target="_blank" rel="noopener">Marconi's GitHub</a>
-                <a href="https://www.behance.net/marconipacheco" target="_blank" rel="noopener">Marconi's Behance</a>
                 <p>Developed using <a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap v4.5
                     </a></p>
+                <div class="divisor"></div>
+                <a href="https://github.com/marconip/dashboard-marconip/archive/master.zip" target="_blank"
+                    rel="noopener">Download this project</a>
             </div>
         </aside>
 
         <main class="col">
-            <section class="col-12 col-md-6">
+            <section class="col-12">
                 <h2> Teste IE 11</h2>
             </section>
-            <section class="col-12 col-md-6">
+            <section class="col-12">
                 <h4>MENU Mostrar seta submenu somente quando tiver submenu e inserir a classe "active"</h4>
+            </section>
+            <section class="col-12 mt-5">
+                <strong> Usar sass mixins para:</strong>
+                <ul>
+                    <li>fontes</li>
+                    <li>scrollbar</li>
+                    <li>transition</li>
+                    <li>transform (rotacao)</li>
+                </ul>
+                <p class="text-danger">-Testar no IE e Firefox</p>
             </section>
         </main>
     </div>
