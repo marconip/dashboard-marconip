@@ -53,3 +53,7 @@ $s45: 2.8125rem;
 $s50: 3.125rem;
 //Se precisar de mais numero é só somar
 //ex. SCSS: font-size: $s50 * 2; CSS font-size: 6.25rem (=100px)
+
+//Fontes
+//@include fontFace('opensans-regular','http://cdn.ici.curitiba.org.br/fontes/opensans-regular');
+//@include fontFace('opensans-bold','http://cdn.ici.curitiba.org.br/fontes/opensans-bold',normal, bold);

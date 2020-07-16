@@ -39,12 +39,14 @@
                     <div class="icone-gear-fill configuracoes" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                     </div>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu parent">
                         <a class="dropdown-item" href="#">Settings</a>
                         <a class="dropdown-item" href="#">Help</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="icone-circle-half"></i> Dark theme: <span
-                                class="text-danger">&nbsp; Off</span></a>
+                        <a class="dropdown-item" href="#">
+                            <i class="icone-circle-half"></i> Dark mode: &nbsp;
+                            <p class="text-danger"> Off</p>
+                        </a>
                     </div>
                 </div>
 
@@ -59,7 +61,7 @@
                         </div>
                     </span>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Profile & Account</a>
+                        <a class="dropdown-item" href="#">Profile settings</a>
                         <a class="dropdown-item" href="#">Language</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><i class="icone-box-arrow-in-right"></i> Sign out</a>
@@ -78,43 +80,54 @@
                         <a href="#"><i class="icone-house-door-fill"></i> <span>Home</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="icone-archive-fill"></i> <span>Menu page</span></a>
+                        <a href="#"><i class="icone-cart-fill"></i> <span>Menu exemple</span></a>
                     </li>
                     <li class="active">
                         <a data-toggle="collapse" href="#submenu1" aria-expanded="false">
-                            <i class="icone-folder-symlink-fill"></i> <span>Menu more link </span>
+                            <i class="icone-folder-symlink-fill"></i> <span>Menu with submenu </span>
                             <span class="icone-chevron-down"></span>
                         </a>
                         <ul class="collapse" id="submenu1">
                             <li>
-                                <a href="#"> <span>Sub-menu 1</span></a>
+                                <a href="#"> <span>Submenu 1</span></a>
                             </li>
                             <li class="active">
-                                <a href="#"> <span>Sub-menu 2</span></a>
+                                <a href="#"> <span>Submenu 2</span></a>
                             </li>
                             <li>
-                                <a href="#"> <span>Sub-menu 3</span></a>
+                                <a href="#"> <span>Submenu 3</span></a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icone-award-fill"></i> <span>Documentation</span></a>
+                        <a href="#"><i class="icone-calendar2-minus-fill"></i> <span>Exemple menu</span></a>
                     </li>
                     <li>
                         <a data-toggle="collapse" href="#submenu2" aria-expanded="false">
-                            <i class="icone-bar-chart-fill"></i> <span>Menu end </span>
+                            <i class="icone-bar-chart-fill"></i> <span>Menu </span>
                             <span class="icone-chevron-down"></span>
                         </a>
                         <ul class="collapse" id="submenu2">
                             <li>
-                                <a href="#"> <span>Sub-menu B</span></a>
+                                <a href="#"> <span>Submenu 01</span></a>
                             </li>
                             <li>
-                                <a href="#"> <span>Sub-menu B</span></a>
+                                <a href="#"> <span>Submenu 02</span></a>
+                            </li>
+                            <li>
+                                <a href="#"> <span>Submenu 03</span></a>
                             </li>
                         </ul>
                     </li>
-
+                    <li>
+                        <a href="#"><i class="icone-house-door-fill"></i> <span>Nav menu</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icone-bell-fill"></i> <span>Menu nav</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icone-printer-fill"></i> <span>navigation</span></a>
+                    </li>
                 </ul>
             </nav>
             <i class="icone-award-fill desenvolvimento-mobile"></i>
@@ -131,22 +144,117 @@
             </div>
         </aside>
 
-        <main class="col">
-            <section class="col-12">
-                <h2> Teste IE 11</h2>
+        <main>
+            <section>
+                <div class="row row-cols-1 row-cols-md-2">
+                    <div class="col">
+                        <h2> About this Dashbard</h2>
+                    </div>
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
             </section>
-            <section class="col-12">
-                <h4>MENU Mostrar seta submenu somente quando tiver submenu e inserir a classe "active"</h4>
+
+            <section>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="painel">
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                                including versions of Lorem Ipsum.
+                            </p>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <section class="col-12 mt-5">
-                <strong> Usar sass mixins para:</strong>
-                <ul>
-                    <li>fontes</li>
-                    <li>scrollbar</li>
-                    <li>transition</li>
-                    <li>transform (rotacao)</li>
-                </ul>
-                <p class="text-danger">-Testar no IE e Firefox</p>
+
+            <section>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+                    <div class="col">
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <h3>Interactions</h3>
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <h3>Interactions</h3>
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <h3>Interactions</h3>
+                        <div class="painel">
+                            <h3 class="d-inline">overview </h3><i class="icone-question-octagon-fill toolti"></i>
+                            <p>
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </section>
         </main>
     </div>

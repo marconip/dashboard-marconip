@@ -1,67 +1,68 @@
-﻿@mixin fontFace($family,$src,$style: normal,$weight: normal) {
-	@font-face {
-		font-family: $family;
-		src: url('#{$src}.woff') format('woff'), url('#{$src}.woff2') format('woff2');
-		font-style: $style;
-		font-weight: $weight;
-	}
+﻿@mixin fontFace($family, $src, $style: normal, $weight: normal) {
+    @font-face {
+        font-family: $family;
+        src: url('#{$src}.woff') format('woff'),
+        url('#{$src}.woff2') format('woff2');
+        font-style: $style;
+        font-weight: $weight;
+    }
 }
 
 @mixin quebratexto {
-	white-space: -o-pre-wrap;
-	white-space: -moz-pre-wrap;
-	word-wrap: break-word; //Internet Explorer 5.5+
-	word-break: break-word;
+    white-space: -o-pre-wrap;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word; //Internet Explorer 5.5+
+    word-break: break-word;
 }
 
 @mixin transition($transition) {
-	transition: $transition;
-	-webkit-transition: $transition;
-	-moz-transition: $transition;
-	-ms-transition: $transition;
-	-o-transition: $transition;
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
 }
 
-@mixin rotacao($rotacao) {
-	::before {
-		transform: $rotacao;
-		-webkit-transition: $rotacao;
-		-moz-transition: $rotacao;
-		-ms-transition: $rotacao;
-		-o-transition: $rotacao;
-	}
+@mixin transform($rotacao) {
+    transform: $rotacao;
+    -webkit-transition: $rotacao;
+    -moz-transition: $rotacao;
+    -ms-transition: $rotacao;
+    -o-transition: $rotacao;
 }
 
 @mixin inputcontrole {
-	&::-moz-range-thumb {
-		@content;
-	}
+    &::-moz-range-thumb {
+        @content;
+    }
 
-	&::-webkit-slider-thumb {
-		@content;
-	}
+    &::-webkit-slider-thumb {
+        @content;
+    }
 
-	&::-ms-slider-thumb {
-		@content;
-	}
+    &::-ms-slider-thumb {
+        @content;
+    }
 
-	&::-ms-thumb {
-		@content;
-	}
+    &::-ms-thumb {
+        @content;
+    }
 }
 
 @mixin navegador($navegadores...) {
-	@each $navegador in $navegadores {
-		@if $navegador == explore {
-			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-				@content;
-			}
-		}
+    @each $navegador in $navegadores {
+        @if $navegador==explore {
 
-		@if $navegador == firefox {
-			@-moz-document url-prefix() {
-				@content;
-			}
-		}
-	}
+            @media screen and (-ms-high-contrast: active),
+            (-ms-high-contrast: none) {
+                @content;
+            }
+        }
+
+        @if $navegador==firefox {
+            @-moz-document url-prefix() {
+                @content;
+            }
+        }
+    }
 }
