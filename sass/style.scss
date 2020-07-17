@@ -41,7 +41,7 @@ h2 {
 }
 
 h3 {
-    font-size: $s20 + $s4;
+    font-size: $s20 + $s2;
     margin-bottom: 8px;
 }
 
@@ -80,6 +80,85 @@ a {
             font-size: $s20;
             margin-right: 7px;
         }
+    }
+}
+
+.btn-primario {
+    color: white;
+    background-color: $primaria;
+    border-color: $primaria;
+
+
+    &:hover {
+        color: white;
+        background-color: darken($primaria, 10%);
+        border-color: darken($primaria, 10%);
+    }
+
+    &.focus,
+    &:focus {
+        color: white;
+        background-color: darken($primaria, 10%);
+        border-color: darken($primaria, 10%);
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+    }
+
+    &.disabled,
+    &:disabled {
+        color: white;
+        background-color: $primaria;
+        border-color: $primaria;
+    }
+
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active,
+    .show>&.dropdown-toggle {
+        color: white;
+        background-color: darken($primaria, 10%);
+        border-color: $primaria;
+    }
+
+    &:not(:disabled):not(.disabled).active:focus,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show>&.dropdown-toggle:focus {
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+    }
+}
+
+.btn-outline-primario {
+    color: $primaria;
+    border-color: $primaria;
+
+
+    &:hover {
+        color: white;
+        background-color: $primaria;
+        border-color: $primaria;
+    }
+
+    &.focus,
+    &:focus {
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+    }
+
+    &.disabled,
+    &:disabled {
+        color: $primaria;
+        background-color: transparent;
+    }
+
+    &:not(:disabled):not(.disabled).active,
+    &:not(:disabled):not(.disabled):active,
+    .show>&.dropdown-toggle {
+        color: white;
+        background-color: $primaria;
+        border-color: $primaria;
+    }
+
+    &:not(:disabled):not(.disabled).active:focus,
+    &:not(:disabled):not(.disabled):active:focus,
+    .show>&.dropdown-toggle:focus {
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
     }
 }
 
@@ -298,6 +377,11 @@ header {
             }
         }
     }
+}
+
+.pag-titulo{
+    border-bottom: 1px solid $c-claro;
+    margin-bottom: 25px;
 }
 
 .conteudo {
@@ -609,7 +693,7 @@ main {
     padding: 0;
     background-color: transparent;
 
-    @include media(sm-abaixo){
+    @include media(sm-abaixo) {
         justify-content: flex-start;
     }
 
@@ -623,6 +707,92 @@ main {
                 font-size: $s12;
                 font-weight: 600;
                 padding-top: 5px;
+            }
+        }
+    }
+}
+
+.checkbox-radio {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    &:hover {
+        color: $primaria;
+
+        input~.checkmark {
+            border-color: $primaria;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0;
+        width: 0;
+        cursor: pointer;
+
+        &:checked~.checkmark {
+            border-color: $primaria;
+
+            &:after {
+                display: block;
+            }
+        }
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+    &.radios {
+        .checkmark {
+            border-radius: 50%;
+            border: 2px solid $c-claro;
+
+            &:after {
+                top: 3px;
+                left: 3px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: $primaria;
+            }
+        }
+    }
+
+    &.checkbox {
+        input {
+            &:checked~.checkmark {
+                background-color: $primaria;
+            }
+        }
+
+        .checkmark {
+            border-radius: 4px;
+            border: 2px solid $c-claro;
+
+            &:after {
+                left: 5px;
+                top: 0px;
+                width: 7px;
+                height: 13px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                @include transform(rotate(45deg));
             }
         }
     }
