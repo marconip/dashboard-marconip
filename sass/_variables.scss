@@ -1,18 +1,20 @@
-//Cores
+//Colors default
 $c-escurao: #333333 !default;
 $c-escuro: #666666 !default;
 $c-medio: #999999 !default;
 $c-claro: #cccccc !default;
 $c-clarao: #f1f1f1 !default;
 
-$primaria: rgb(44, 139, 44);
-$secundaria: #ffa500;
-
-$borda: #ced4da;
+$borda: #ced4da !default;
 
 $textos: 'Source Sans Pro', sans-serif;
 $titulos: 'Montserrat', sans-serif;
 
+//Dark mode
+$fundo-claro-dark: #202020;
+$fundo-escuro-dark: #131313;
+$f0-dark: #fff;
+$primaria-dark: #03A9F4;
 
 //Responsive breakpoints
 $m575: 575.98px;

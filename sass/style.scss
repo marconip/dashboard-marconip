@@ -4,11 +4,13 @@
 @import "_mixins.scss";
 @import "_media.scss";
 @import "_variables.scss";
+@import "_theme.scss";
 
 body {
     font-family: $textos;
     color: $c-escuro;
     padding-top: 56px;
+    background-color: $fundo-escuro-dark;
 }
 
 h1,
@@ -18,20 +20,28 @@ h4,
 h5,
 h6 {
     font-family: $titulos;
-    color: $primaria;
+    color: $f0-dark;
     margin: 0px;
 }
 
 h1 {
     font-size: $s20;
     font-weight: 600;
-    color: $primaria;
+    color: $f0-dark;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
     @include media(sm-abaixo) {
         display: none;
+    }
+
+    a {
+        color: $f0-dark;
+
+        &:hover {
+            color: $f0-dark;
+        }
     }
 }
 
@@ -53,7 +63,10 @@ ul {
 }
 
 a {
+    color: $primaria-dark;
+
     &:hover {
+        color: darken($primaria-dark, 10%);
         text-decoration: none;
     }
 }
@@ -63,7 +76,7 @@ a {
     height: 0;
     margin: .5rem 0;
     overflow: hidden;
-    border-top: 1px solid $borda;
+    border-top: 1px solid;
 }
 
 .dropdown-menu {
@@ -85,65 +98,65 @@ a {
 
 .btn-primario {
     color: white;
-    background-color: $primaria;
-    border-color: $primaria;
+    background-color: $primaria-dark;
+    border-color: $primaria-dark;
 
 
     &:hover {
         color: white;
-        background-color: darken($primaria, 10%);
-        border-color: darken($primaria, 10%);
+        background-color: darken($primaria-dark, 10%);
+        border-color: darken($primaria-dark, 10%);
     }
 
     &.focus,
     &:focus {
         color: white;
-        background-color: darken($primaria, 10%);
-        border-color: darken($primaria, 10%);
-        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+        background-color: darken($primaria-dark, 10%);
+        border-color: darken($primaria-dark, 10%);
+        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
     }
 
     &.disabled,
     &:disabled {
         color: white;
-        background-color: $primaria;
-        border-color: $primaria;
+        background-color: $primaria-dark;
+        border-color: $primaria-dark;
     }
 
     &:not(:disabled):not(.disabled).active,
     &:not(:disabled):not(.disabled):active,
     .show>&.dropdown-toggle {
         color: white;
-        background-color: darken($primaria, 10%);
-        border-color: $primaria;
+        background-color: darken($primaria-dark, 10%);
+        border-color: $primaria-dark;
     }
 
     &:not(:disabled):not(.disabled).active:focus,
     &:not(:disabled):not(.disabled):active:focus,
     .show>&.dropdown-toggle:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
     }
 }
 
 .btn-outline-primario {
-    color: $primaria;
-    border-color: $primaria;
+    color: $primaria-dark;
+    border-color: $primaria-dark;
 
 
     &:hover {
         color: white;
-        background-color: $primaria;
-        border-color: $primaria;
+        background-color: $primaria-dark;
+        border-color: $primaria-dark;
     }
 
     &.focus,
     &:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
     }
 
     &.disabled,
     &:disabled {
-        color: $primaria;
+        color: $primaria-dark;
         background-color: transparent;
     }
 
@@ -151,14 +164,14 @@ a {
     &:not(:disabled):not(.disabled):active,
     .show>&.dropdown-toggle {
         color: white;
-        background-color: $primaria;
-        border-color: $primaria;
+        background-color: $primaria-dark;
+        border-color: $primaria-dark;
     }
 
     &:not(:disabled):not(.disabled).active:focus,
     &:not(:disabled):not(.disabled):active:focus,
     .show>&.dropdown-toggle:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
     }
 }
 
@@ -166,7 +179,7 @@ header {
     position: fixed;
     top: 0;
     z-index: 1;
-    background: white;
+    background: $fundo-claro-dark;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
 
     .menu {
@@ -187,7 +200,7 @@ header {
             cursor: pointer;
 
             &:hover {
-                background-color: $primaria;
+                background-color: $primaria-dark;
 
                 .btn-menu {
                     background-image: url(../img/menu-light.svg);
@@ -200,7 +213,7 @@ header {
                 }
 
                 &:hover {
-                    background-color: $primaria;
+                    background-color: $primaria-dark;
 
                     .btn-menu {
                         background-image: url(../img/menu-icons-light.svg);
@@ -304,7 +317,7 @@ header {
             cursor: pointer;
 
             &:hover {
-                color: $primaria;
+                color: $primaria-dark;
             }
         }
 
@@ -329,11 +342,11 @@ header {
 
             &:hover,
             &.clicado {
-                color: $primaria;
+                color: $primaria-dark;
                 background-color: $c-clarao;
 
                 .perfil-foto {
-                    border-color: $primaria;
+                    border-color: $primaria-dark;
                 }
             }
 
@@ -379,7 +392,7 @@ header {
     }
 }
 
-.pag-titulo{
+.pag-titulo {
     border-bottom: 1px solid $c-claro;
     margin-bottom: 25px;
 }
@@ -399,7 +412,9 @@ aside {
     height: calc(100vh - 56px);
     overflow: auto;
     white-space: nowrap;
+    border-right: 1px solid $c-claro;
     @include transition(.20s);
+    background-color: $fundo-claro-dark;
 
     &:hover {
 
@@ -631,15 +646,49 @@ main {
     flex-basis: 0;
     flex-grow: 1;
     overflow: auto;
-    background-color: lighten($c-clarao, 2%);
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 .painel {
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 6px;
-    background-color: white;
+    border: 1px solid $c-claro;
+    color: $f0-dark;
+    background-color: $fundo-claro-dark;
+}
+
+.table-responsive,
+.modal-body {
+
+    //barra movel tamanho 
+    &::-webkit-scrollbar {
+        height: 0.5rem;
+    }
+
+    //caminho/fundo da barra
+    &::-webkit-scrollbar-track {
+        background: $c-clarao;
+    }
+
+    //barra movel
+    &::-webkit-scrollbar-thumb {
+        border-radius: 50px;
+        background: $c-claro;
+
+        &:hover {
+            border-radius: 50px;
+            background: $c-medio;
+        }
+    }
+}
+
+.modal-body {
+
+    //barra movel tamanho 
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+    }
 }
 
 .switch {
@@ -654,7 +703,7 @@ main {
 
         &:checked {
             &+.slider {
-                background-color: $primaria;
+                background-color: $primaria-dark;
 
                 &:before {
                     @include transform(translateX(15px));
@@ -721,10 +770,10 @@ main {
     cursor: pointer;
 
     &:hover {
-        color: $primaria;
+        color: $primaria-dark;
 
         input~.checkmark {
-            border-color: $primaria;
+            border-color: $primaria-dark;
         }
     }
 
@@ -736,7 +785,7 @@ main {
         cursor: pointer;
 
         &:checked~.checkmark {
-            border-color: $primaria;
+            border-color: $primaria-dark;
 
             &:after {
                 display: block;
@@ -769,7 +818,7 @@ main {
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
-                background: $primaria;
+                background: $primaria-dark;
             }
         }
     }
@@ -777,7 +826,7 @@ main {
     &.checkbox {
         input {
             &:checked~.checkmark {
-                background-color: $primaria;
+                background-color: $primaria-dark;
             }
         }
 
