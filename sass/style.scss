@@ -4,11 +4,11 @@
 @import "_mixins.scss";
 @import "_media.scss";
 @import "_variables.scss";
-@import "_theme.scss";
+
 
 body {
     font-family: $textos;
-    color: $c-escuro;
+    color: $c-medio-dark;
     padding-top: 56px;
     background-color: $fundo-escuro-dark;
 }
@@ -26,7 +26,6 @@ h6 {
 
 h1 {
     font-size: $s20;
-    font-weight: 600;
     color: $f0-dark;
     white-space: nowrap;
     overflow: hidden;
@@ -45,10 +44,12 @@ h1 {
     }
 }
 
+
 h2 {
     font-size: $s20 + $s4;
     font-weight: 600;
 }
+
 
 h3 {
     font-size: $s20 + $s2;
@@ -66,8 +67,20 @@ a {
     color: $primaria-dark;
 
     &:hover {
-        color: darken($primaria-dark, 10%);
+        color: $primaria-hover-dark;
         text-decoration: none;
+    }
+}
+
+input[type="text"],
+textarea {
+    border-color: $borda-dark;
+    background-color: $fundo-escuro-dark;
+
+    &:hover,
+    &:focus {
+        color: $f0-dark;
+        background-color: $fundo-escuro-dark;
     }
 }
 
@@ -76,12 +89,17 @@ a {
     height: 0;
     margin: .5rem 0;
     overflow: hidden;
-    border-top: 1px solid;
+    border-top: 1px solid $borda-dark;
+}
+
+.dropdown-divider {
+    border-color: $borda-dark;
 }
 
 .dropdown-menu {
     border-top: 0px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
+    background-color: $c-clarao-dark;
 
     .dropdown-item {
         display: flex;
@@ -89,10 +107,27 @@ a {
         padding-left: 10px;
         padding-right: 10px;
 
+        &:hover,
+        &:active {
+            background-color: $primaria-dark;
+        }
+
         i {
             font-size: $s20;
             margin-right: 7px;
         }
+    }
+
+    a {
+        color: $c-escuro-dark;
+    }
+}
+
+.btn {
+
+    &:focus,
+    &.focus {
+        box-shadow: none;
     }
 }
 
@@ -104,15 +139,15 @@ a {
 
     &:hover {
         color: white;
-        background-color: darken($primaria-dark, 10%);
-        border-color: darken($primaria-dark, 10%);
+        background-color: $primaria-hover-dark;
+        border-color: $primaria-hover-dark;
     }
 
     &.focus,
     &:focus {
         color: white;
-        background-color: darken($primaria-dark, 10%);
-        border-color: darken($primaria-dark, 10%);
+        background-color: $primaria-hover-dark;
+        border-color: $primaria-hover-dark;
         box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
     }
 
@@ -127,7 +162,7 @@ a {
     &:not(:disabled):not(.disabled):active,
     .show>&.dropdown-toggle {
         color: white;
-        background-color: darken($primaria-dark, 10%);
+        background-color: $primaria-hover-dark;
         border-color: $primaria-dark;
     }
 
@@ -225,7 +260,7 @@ header {
                 display: inline-block;
                 width: 18px;
                 height: 18px;
-                background-image: url(../img/menu-dark.svg);
+                background-image: url(../img/menu-light.svg); ////-dark mode
                 background-repeat: no-repeat;
                 background-size: cover;
             }
@@ -245,11 +280,11 @@ header {
         }
 
         button {
-            border-color: $borda;
-            background-color: $c-clarao;
+            border-color: $borda-dark;
+            background-color: $fundo-claro-dark;
 
             &:hover {
-                background-color: darken($c-clarao, 10%);
+                background-color: $fundo-escuro-dark;
             }
 
             @include media(sm-abaixo) {
@@ -277,7 +312,7 @@ header {
                 border: 0;
                 box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
                 @include transition(.35s);
-                background-color: #f1f1f1;
+                background-color: $c-clarao-dark;
             }
 
             &.clicado {
@@ -311,7 +346,7 @@ header {
 
         .configuracoes {
             font-size: $s25;
-            color: $c-escuro;
+            color: $c-escuro-dark;
             padding: 10px 0;
             margin-right: 5px;
             cursor: pointer;
@@ -343,7 +378,7 @@ header {
             &:hover,
             &.clicado {
                 color: $primaria-dark;
-                background-color: $c-clarao;
+                background-color: $c-clarao-dark;
 
                 .perfil-foto {
                     border-color: $primaria-dark;
@@ -367,7 +402,7 @@ header {
 
                     &+p {
                         font-weight: 400;
-                        color: $c-medio;
+                        color: $c-claro-dark;
                         margin: 0px;
                     }
                 }
@@ -380,7 +415,7 @@ header {
                 width: 36px;
                 height: 36px;
                 border-radius: 50%;
-                border: 1px solid $c-claro;
+                border: 1px solid $c-claro-dark;
                 overflow: hidden;
 
                 img {
@@ -393,7 +428,7 @@ header {
 }
 
 .pag-titulo {
-    border-bottom: 1px solid $c-claro;
+    border-bottom: 1px solid $borda-dark;
     margin-bottom: 25px;
 }
 
@@ -412,7 +447,7 @@ aside {
     height: calc(100vh - 56px);
     overflow: auto;
     white-space: nowrap;
-    border-right: 1px solid $c-claro;
+    border-right: 1px solid $borda-dark;
     @include transition(.20s);
     background-color: $fundo-claro-dark;
 
@@ -421,8 +456,8 @@ aside {
         //barra movel
         &::-webkit-scrollbar-thumb {
             border-radius: 50px;
-            background: $c-claro;
-        }
+            background: $c-clarao-dark;
+        } 
     }
 
     //barra movel tamanho 
@@ -432,7 +467,7 @@ aside {
 
     //caminho/fundo da barra
     &::-webkit-scrollbar-track {
-        background: white;
+        background: $fundo-claro-dark;
     }
 
     &.menu-fechado {
@@ -508,7 +543,7 @@ aside {
             flex-direction: row;
             justify-content: space-around;
             padding: 15px 15px 15px 60px;
-            border: 1px solid $c-claro;
+            border: 1px solid $borda-dark;
             background-color: white;
             @include transition(.20s);
 
@@ -530,7 +565,7 @@ aside {
 
     nav {
         ul {
-            border-bottom: 1px solid $c-claro;
+            border-bottom: 1px solid $borda-dark;
             margin-bottom: 20px;
 
             ul {
@@ -543,18 +578,22 @@ aside {
                     &:hover {
 
                         a {
-                            color: $c-escurao !important;
-                            background-color: lighten($c-claro, 5%);
+                            color: $f0-dark !important;
+                            background-color: $c-claro-dark;
 
                             &:hover {
-                                background-color: lighten($c-claro, 5%);
+                                background-color: $c-claro-dark;
                             }
                         }
+                    }
+
+                    a {
+                        border-left: 0px !important;
                     }
                 }
 
                 a {
-                    color: $c-escuro !important;
+                    color: $c-escuro-dark !important;
                     padding-left: 50px;
                 }
             }
@@ -564,10 +603,14 @@ aside {
             &.active {
 
                 a {
-                    color: $c-escurao;
-                    background-color: lighten($c-claro, 10%);
-                    border-left: 4px solid #000;
+                    color: $c-escurao-dark;
+                    background-color: $c-clarao-dark;
+                    border-left: 4px solid $f0-dark;
                     padding-left: 16px;
+                }
+
+                i {
+                    color: $c-escurao-dark;
                 }
 
                 ul {
@@ -601,17 +644,18 @@ aside {
             a {
                 display: flex;
                 align-items: center;
-                color: $c-escuro;
+                color: $c-escuro-dark;
                 height: 44px;
                 padding: 10px 20px;
 
                 &:hover {
-                    color: $c-escurao;
-                    background-color: lighten($c-claro, 10%);
+                    color: $c-escurao-dark;
+                    background-color: $c-clarao-dark;
                 }
             }
 
             i {
+                color: $c-claro-dark;
                 font-size: $s20;
                 margin-right: 10px;
             }
@@ -628,7 +672,7 @@ aside {
         align-items: center;
         text-align: center;
         font-size: $s14;
-        color: $c-escuro;
+        color: $c-escuro-dark;
         padding: 0 15px 20px 15px;
 
         p {
@@ -653,9 +697,29 @@ main {
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 6px;
-    border: 1px solid $c-claro;
-    color: $f0-dark;
+    border: 1px solid $c-claro-dark;
+    border-color: $borda-dark;
     background-color: $fundo-claro-dark;
+}
+
+.table {
+    color: $f0-dark;
+}
+
+.table-bordered {
+
+    td,
+    th {
+        border-color: $borda-dark;
+    }
+
+    thead {
+
+        td,
+        th {
+            border-color: $borda-dark;
+        }
+    }
 }
 
 .table-responsive,
@@ -668,17 +732,17 @@ main {
 
     //caminho/fundo da barra
     &::-webkit-scrollbar-track {
-        background: $c-clarao;
+        background: $c-clarao-dark;
     }
 
     //barra movel
     &::-webkit-scrollbar-thumb {
         border-radius: 50px;
-        background: $c-claro;
+        background: $c-claro-dark;
 
         &:hover {
             border-radius: 50px;
-            background: $c-medio;
+            background: $c-medio-dark;
         }
     }
 }
@@ -720,7 +784,7 @@ main {
         right: 0;
         bottom: 0;
         border-radius: 30px;
-        background-color: $c-claro;
+        background-color: $c-claro-dark;
         @include transition(.4s);
 
         &:before {
@@ -810,7 +874,7 @@ main {
     &.radios {
         .checkmark {
             border-radius: 50%;
-            border: 2px solid $c-claro;
+            border: 2px solid $c-claro-dark;
 
             &:after {
                 top: 3px;
@@ -832,7 +896,7 @@ main {
 
         .checkmark {
             border-radius: 4px;
-            border: 2px solid $c-claro;
+            border: 2px solid $c-claro-dark;
 
             &:after {
                 left: 5px;

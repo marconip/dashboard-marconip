@@ -11,10 +11,19 @@ $textos: 'Source Sans Pro', sans-serif;
 $titulos: 'Montserrat', sans-serif;
 
 //Dark mode
+$primaria-dark: #03A9F4; 
+$primaria-hover-dark: darken($primaria-dark, 10%);
+
+$c-escurao-dark: #f1f1f1;
+$c-escuro-dark: #ccc;
+$c-medio-dark: #999999;
+$c-claro-dark: #666;
+$c-clarao-dark: #333;
+
 $fundo-claro-dark: #202020;
 $fundo-escuro-dark: #131313;
 $f0-dark: #fff;
-$primaria-dark: #03A9F4;
+$borda-dark: #444;
 
 //Responsive breakpoints
 $m575: 575.98px;

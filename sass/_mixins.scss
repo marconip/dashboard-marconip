@@ -8,6 +8,21 @@
     }
 }
 
+@mixin theme($themes...) {
+    @each $theme in $themes {
+        @if $theme == dark {
+            .dark-theme & {
+                @content;
+            }
+        }
+        @if $theme == light {
+			.red-theme & {
+                @content;
+            }
+		}
+    }
+}
+
 @mixin quebratexto {
     white-space: -o-pre-wrap;
     white-space: -moz-pre-wrap;
@@ -31,20 +46,16 @@
     -o-transition: $rotacao;
 }
 
-@mixin inputcontrole {
-    &::-moz-range-thumb {
+@mixin placeholder {
+    &::placeholder {
         @content;
     }
 
-    &::-webkit-slider-thumb {
+    &:-ms-input-placeholder {
         @content;
     }
 
-    &::-ms-slider-thumb {
-        @content;
-    }
-
-    &::-ms-thumb {
+    &::-ms-input-placeholder {
         @content;
     }
 }
