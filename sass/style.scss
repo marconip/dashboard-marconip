@@ -457,7 +457,7 @@ aside {
         &::-webkit-scrollbar-thumb {
             border-radius: 50px;
             background: $c-clarao-dark;
-        } 
+        }
     }
 
     //barra movel tamanho 
@@ -492,7 +492,7 @@ aside {
                 &:hover {
                     width: 240px;
                     position: relative;
-                    background-color: white;
+                    background-color: $c-clarao-dark;
                     z-index: 1;
 
                     ul {
@@ -505,15 +505,21 @@ aside {
                         }
 
                         span {
+                            visibility: visible;
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
                             margin: 0px;
                         }
                     }
+
+                    span {
+                        visibility: visible;
+                    }
                 }
 
                 span {
+                    visibility: hidden;
                     margin-left: 20px;
 
                     &+span {
