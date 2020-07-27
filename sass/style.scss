@@ -496,11 +496,19 @@ aside {
                 ul {
                     position: absolute;
                     left: 60px;
+                    z-index: 1;
                     width: 180px;
+                    visibility: hidden;
                 }
             }
 
             li {
+
+                &.active {
+                    a {
+                        background-color: transparent;
+                    }
+                }
 
                 &:hover {
                     width: 240px;
@@ -508,7 +516,8 @@ aside {
                     background-color: $c-clarao-dark;
                     z-index: 2;
 
-                    ul {
+                    ul {                        
+
                         li {
                             width: 180px;
                         }
@@ -523,6 +532,11 @@ aside {
                             overflow: hidden;
                             text-overflow: ellipsis;
                             margin: 0px;
+                        }
+
+                        &.show {
+                            visibility: visible;
+                            background-color: $fundo-claro-dark;
                         }
                     }
 

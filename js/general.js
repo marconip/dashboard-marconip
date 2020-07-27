@@ -24,14 +24,36 @@ document.querySelector(".desenvolvimento-mobile").onclick = function () {
   document.querySelector(".desenvolvimento").classList.toggle('clicado');
 };
 
-//menu icone abrir fechar
+//Topo icone-menu abrir fechar lateral
 document.querySelector(".menu-icone").onclick = function () {
   this.classList.toggle('clicado');
   document.querySelector("aside").classList.toggle('menu-fechado');
   document.querySelector(".desenvolvimento").classList.remove('clicado');
+  if (document.querySelector("aside").classList.contains("menu-fechado")) {
+    var showSubmenu = document.querySelectorAll("aside li ul");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.add("show");
+    });
+    var submenus = document.querySelectorAll("aside li a");
+    submenus.forEach(function (ele) {
+      ele.removeAttribute("data-toggle");
+    });
+  } else {
+    var showSubmenu = document.querySelectorAll("aside li ul");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.remove("show");
+      if (ell.parentElement.classList.contains("active")) {
+        ell.classList.add("show");
+      }
+    });
+    var submenus = document.querySelectorAll("aside li a");
+    submenus.forEach(function (ele) {
+      ele.setAttribute("data-toggle", "collapse");
+    });
+  }
 }
 
-//menu
+//menu seleciona "ativo" ao click
 var menu = document.querySelectorAll("aside li");
 menu.forEach(function (el) {
   el.onclick = function () {
@@ -87,6 +109,6 @@ function resolucao(x) {
     document.querySelector("aside").classList.remove('menu-fechado');
     document.querySelector("aside").classList.add('menu-phone');
   }
-  
+
 };
 
