@@ -8,9 +8,14 @@
 
 body {
     font-family: $textos;
-    color: $c-medio-dark;
+    color: $texto;
     padding-top: 56px;
-    background-color: $fundo-escuro-dark;
+    background-color: $fundo-escuro;
+
+    &.dark-theme {
+        color: $texto-dark;
+        background-color: $fundo-escuro-dark;
+    }
 }
 
 h1,
@@ -20,26 +25,42 @@ h4,
 h5,
 h6 {
     font-family: $titulos;
-    color: $f0-dark;
+    color: $f0;
     margin: 0px;
+
+    @include theme(dark) {
+        color: $f0-dark;
+    }
 }
 
 h1 {
     font-size: $s20;
-    color: $f0-dark;
+    color: $f0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    @include theme(dark) {
+        color: $f0-dark;
+    }
 
     @include media(sm-abaixo) {
         display: none;
     }
 
     a {
-        color: $f0-dark;
+        color: $f0;
+
+        @include theme(dark) {
+            color: $f0-dark;
+        }
 
         &:hover {
-            color: $f0-dark;
+            color: $f0;
+
+            @include theme(dark) {
+                color: $f0-dark;
+            }
         }
     }
 }
@@ -64,23 +85,41 @@ ul {
 }
 
 a {
-    color: $primaria-dark;
+    color: $primaria;
+
+    @include theme(dark) {
+        color: $primaria-dark;
+    }
 
     &:hover {
-        color: $primaria-hover-dark;
+        color: $primaria-hover;
         text-decoration: none;
+
+        @include theme(dark) {
+            color: $primaria-hover-dark;
+        }
     }
 }
 
 input[type="text"],
 textarea {
-    border-color: $borda-dark;
-    background-color: $fundo-escuro-dark;
+    border-color: $borda;
+    background-color: $fundo-escuro;
+
+    @include theme(dark) {
+        border-color: $borda-dark;
+        background-color: $fundo-escuro-dark;
+    }
 
     &:hover,
     &:focus {
-        color: $f0-dark;
-        background-color: $fundo-escuro-dark;
+        color: $f0;
+        background-color: $fundo-escuro;
+
+        @include theme(dark) {
+            color: $f0-dark;
+            background-color: $fundo-escuro-dark;
+        }
     }
 }
 
@@ -89,17 +128,29 @@ textarea {
     height: 0;
     margin: .5rem 0;
     overflow: hidden;
-    border-top: 1px solid $borda-dark;
+    border-top: 1px solid $borda;
+
+    @include theme(dark) {
+        border-top: 1px solid $borda-dark;
+    }
 }
 
 .dropdown-divider {
-    border-color: $borda-dark;
+    border-color: $borda;
+
+    @include theme(dark) {
+        border-color: $borda-dark;
+    }
 }
 
 .dropdown-menu {
     border-top: 0px;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
-    background-color: $c-clarao-dark;
+    background-color: $fundo-claro;
+
+    @include theme(dark) {
+        background-color: $fundo-claro-dark;
+    }
 
     .dropdown-item {
         display: flex;
@@ -109,7 +160,11 @@ textarea {
 
         &:hover,
         &:active {
-            background-color: $primaria-dark;
+            background-color: $primaria;
+
+            @include theme(dark) {
+                background-color: $primaria-dark;
+            }
         }
 
         i {
@@ -119,7 +174,11 @@ textarea {
     }
 
     a {
-        color: $c-escuro-dark;
+        color: $texto;
+
+        @include theme(dark) {
+            color: $texto-dark;
+        }
     }
 }
 
@@ -133,80 +192,136 @@ textarea {
 
 .btn-primario {
     color: white;
-    background-color: $primaria-dark;
-    border-color: $primaria-dark;
+    background-color: $primaria;
+    border-color: $primaria;
 
+    @include theme(dark) {
+        background-color: $primaria-dark;
+        border-color: $primaria-dark;
+    }
 
     &:hover {
         color: white;
-        background-color: $primaria-hover-dark;
-        border-color: $primaria-hover-dark;
+        background-color: $primaria-hover;
+        border-color: $primaria-hover;
+
+        @include theme(dark) {
+            background-color: $primaria-hover-dark;
+            border-color: $primaria-hover-dark;
+        }
     }
 
     &.focus,
     &:focus {
         color: white;
-        background-color: $primaria-hover-dark;
-        border-color: $primaria-hover-dark;
-        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        background-color: $primaria-hover;
+        border-color: $primaria-hover;
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+
+        @include theme(dark) {
+            background-color: $primaria-hover-dark;
+            border-color: $primaria-hover-dark;
+            box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        }
     }
 
     &.disabled,
     &:disabled {
         color: white;
-        background-color: $primaria-dark;
-        border-color: $primaria-dark;
+        background-color: $primaria;
+        border-color: $primaria;
+
+        @include theme(dark) {
+            background-color: $primaria-dark;
+            border-color: $primaria-dark;
+        }
     }
 
     &:not(:disabled):not(.disabled).active,
     &:not(:disabled):not(.disabled):active,
     .show>&.dropdown-toggle {
         color: white;
-        background-color: $primaria-hover-dark;
-        border-color: $primaria-dark;
+        background-color: $primaria-hover;
+        border-color: $primaria;
+
+        @include theme(dark) {
+            background-color: $primaria-hover-dark;
+            border-color: $primaria-dark;
+        }
     }
 
     &:not(:disabled):not(.disabled).active:focus,
     &:not(:disabled):not(.disabled):active:focus,
     .show>&.dropdown-toggle:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+
+        @include theme(dark) {
+            box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        }
     }
 }
 
 .btn-outline-primario {
-    color: $primaria-dark;
-    border-color: $primaria-dark;
+    color: $primaria;
+    border-color: $primaria;
+
+    @include theme(dark) {
+        color: $primaria-dark;
+        border-color: $primaria-dark;
+    }
 
 
     &:hover {
         color: white;
-        background-color: $primaria-dark;
-        border-color: $primaria-dark;
+        background-color: $primaria;
+        border-color: $primaria;
+
+        @include theme(dark) {
+            background-color: $primaria-dark;
+            border-color: $primaria-dark;
+        }
     }
 
     &.focus,
     &:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+
+        @include theme(dark) {
+            box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        }
     }
 
     &.disabled,
     &:disabled {
-        color: $primaria-dark;
+        color: $primaria;
         background-color: transparent;
+
+        @include theme(dark) {
+            color: $primaria-dark;
+        }
     }
 
     &:not(:disabled):not(.disabled).active,
     &:not(:disabled):not(.disabled):active,
     .show>&.dropdown-toggle {
         color: white;
-        background-color: $primaria-dark;
-        border-color: $primaria-dark;
+        background-color: $primaria;
+        border-color: $primaria;
+
+        @include theme(dark) {
+            background-color: $primaria-dark;
+            border-color: $primaria-dark;
+        }
     }
 
     &:not(:disabled):not(.disabled).active:focus,
     &:not(:disabled):not(.disabled):active:focus,
     .show>&.dropdown-toggle:focus {
-        box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        box-shadow: 0 0 0 .2rem rgba($primaria, .5);
+
+        @include theme(dark) {
+            box-shadow: 0 0 0 .2rem rgba($primaria-dark, .5);
+        }
     }
 }
 
@@ -214,8 +329,12 @@ header {
     position: fixed;
     top: 0;
     z-index: 1;
-    background: $fundo-claro-dark;
+    background: $fundo-claro;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
+
+    @include theme(dark) {
+        background: $fundo-claro-dark;
+    }
 
     .menu {
         display: flex;
@@ -235,7 +354,11 @@ header {
             cursor: pointer;
 
             &:hover {
-                background-color: $primaria-dark;
+                background-color: $primaria;
+
+                @include theme(dark) {
+                    background-color: $primaria-dark;
+                }
 
                 .btn-menu {
                     background-image: url(../img/menu-light.svg);
@@ -244,11 +367,19 @@ header {
 
             &.clicado {
                 .btn-menu {
-                    background-image: url(../img/menu-icons-dark.svg);
+                    background-image: url(../img/menu-icons.svg);
+
+                    @include theme(dark) {
+                        background-image: url(../img/menu-icons-dark.svg);
+                    }
                 }
 
                 &:hover {
-                    background-color: $primaria-dark;
+                    background-color: $primaria;
+
+                    @include theme(dark) {
+                        background-color: $primaria-dark;
+                    }
 
                     .btn-menu {
                         background-image: url(../img/menu-icons-light.svg);
@@ -260,9 +391,13 @@ header {
                 display: inline-block;
                 width: 18px;
                 height: 18px;
-                background-image: url(../img/menu-light.svg); ////-dark mode
+                background-image: url(../img/menu-dark.svg);
                 background-repeat: no-repeat;
                 background-size: cover;
+
+                @include theme(dark) {
+                    background-image: url(../img/menu-light.svg); ////-dark mode
+                }
             }
         }
     }
@@ -280,11 +415,20 @@ header {
         }
 
         button {
-            border-color: $borda-dark;
-            background-color: $fundo-claro-dark;
+            border-color: $borda;
+            background-color: $fundo-claro;
+
+            @include theme(dark) {
+                border-color: $borda-dark;
+                background-color: $fundo-claro-dark;
+            }
 
             &:hover {
-                background-color: $fundo-escuro-dark;
+                background-color: $fundo-escuro;
+
+                @include theme(dark) {
+                    background-color: $fundo-escuro-dark;
+                }
             }
 
             @include media(sm-abaixo) {
@@ -312,7 +456,7 @@ header {
                 border: 0;
                 box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
                 @include transition(.35s);
-                background-color: $c-clarao-dark;
+                background-color: $c-escurao;
             }
 
             &.clicado {
@@ -346,13 +490,17 @@ header {
 
         .configuracoes {
             font-size: $s25;
-            color: $c-escuro-dark;
+            color: $c-claro;
             padding: 10px 0;
             margin-right: 5px;
             cursor: pointer;
 
             &:hover {
-                color: $primaria-dark;
+                color: $primaria;
+
+                @include theme(dark) {
+                    color: $primaria-dark;
+                }
             }
         }
 
@@ -377,11 +525,20 @@ header {
 
             &:hover,
             &.clicado {
-                color: $primaria-dark;
-                background-color: $c-clarao-dark;
+                color: $primaria;
+                background-color: $fundo-escuro;
+
+                @include theme(dark) {
+                    color: $primaria-dark;
+                    background-color: $fundo-escuro-dark;
+                }
 
                 .perfil-foto {
-                    border-color: $primaria-dark;
+                    border-color: $primaria;
+
+                    @include theme(dark) {
+                        border-color: $primaria-dark;
+                    }
                 }
             }
 
@@ -402,7 +559,7 @@ header {
 
                     &+p {
                         font-weight: 400;
-                        color: $c-claro-dark;
+                        color: $c-medio;
                         margin: 0px;
                     }
                 }
@@ -415,7 +572,7 @@ header {
                 width: 36px;
                 height: 36px;
                 border-radius: 50%;
-                border: 1px solid $c-claro-dark;
+                border: 1px solid $c-claro;
                 overflow: hidden;
 
                 img {
@@ -428,8 +585,12 @@ header {
 }
 
 .pag-titulo {
-    border-bottom: 1px solid $borda-dark;
+    border-bottom: 1px solid $borda;
     margin-bottom: 25px;
+
+    @include theme(dark) {
+        border-bottom: 1px solid $borda-dark;
+    }
 }
 
 .conteudo {
@@ -447,16 +608,25 @@ aside {
     height: calc(100vh - 56px);
     overflow: auto;
     white-space: nowrap;
-    border-right: 1px solid $borda-dark;
     @include transition(.20s);
-    background-color: $fundo-claro-dark;
+    border-right: 1px solid transparent;
+    background-color: $fundo-claro;
+
+    @include theme(dark) {
+        border-color: $borda-dark;
+        background-color: $fundo-claro-dark;
+    }
 
     &:hover {
 
         //barra movel
         &::-webkit-scrollbar-thumb {
             border-radius: 50px;
-            background: $c-clarao-dark;
+            background: $c-claro;
+
+            @include theme(dark) {
+                background: $c-escurao;
+            }
         }
     }
 
@@ -467,7 +637,11 @@ aside {
 
     //caminho/fundo da barra
     &::-webkit-scrollbar-track {
-        background: $fundo-claro-dark;
+        background: $fundo-claro;
+
+        @include theme(dark) {
+            background: $fundo-claro-dark;
+        }
     }
 
     &.menu-phone {
@@ -513,10 +687,10 @@ aside {
                 &:hover {
                     width: 240px;
                     position: relative;
-                    background-color: $c-clarao-dark;
+                    background-color: $c-escurao;
                     z-index: 2;
 
-                    ul {                        
+                    ul {
 
                         li {
                             width: 180px;
@@ -536,7 +710,11 @@ aside {
 
                         &.show {
                             visibility: visible;
-                            background-color: $fundo-claro-dark;
+                            background-color: $fundo-claro;
+
+                            @include theme(dark) {
+                                background-color: $fundo-claro-dark;
+                            }
                         }
                     }
 
@@ -564,6 +742,14 @@ aside {
             bottom: 15px;
             z-index: 2;
             cursor: pointer;
+
+            &:hover {
+                color: $primaria;
+
+                @include theme(dark) {
+                    color: $primaria-dark;
+                }
+            }
         }
 
         .desenvolvimento {
@@ -581,6 +767,11 @@ aside {
             box-shadow: 3px -3px 0px rgba(0, 0, 0, 0.2);
             @include transition(.35s);
 
+            @include theme(dark) {
+                border: 1px solid $borda-dark;
+                background-color: $fundo-claro-dark;
+            }
+
             .divisor {
                 display: none;
             }
@@ -594,8 +785,12 @@ aside {
 
     nav {
         ul {
-            border-bottom: 1px solid $borda-dark;
+            border-bottom: 1px solid $borda;
             margin-bottom: 20px;
+
+            @include theme(dark) {
+                border-bottom: 1px solid $borda-dark;
+            }
 
             ul {
                 border-bottom: 0px;
@@ -605,13 +800,18 @@ aside {
 
                     &.active,
                     &:hover {
+                        //SUBMENUS
 
                         a {
-                            color: $f0-dark !important;
-                            background-color: $c-claro-dark;
+                            color: $f0 !important;
+                            background-color: $c-medio;
+
+                            @include theme(dark) {
+                                color: $f0-dark !important;
+                            }
 
                             &:hover {
-                                background-color: $c-claro-dark;
+                                background-color: $c-escuro;
                             }
                         }
                     }
@@ -622,7 +822,7 @@ aside {
                 }
 
                 a {
-                    color: $c-escuro-dark !important;
+                    color: $c-claro !important;
                     padding-left: 50px;
                 }
             }
@@ -632,20 +832,31 @@ aside {
             &.active {
 
                 a {
-                    color: $c-escurao-dark;
-                    background-color: $c-clarao-dark;
-                    border-left: 4px solid $f0-dark;
+                    color: $f0;
+                    border-left: 4px solid $f0;
+                    background-color: $c-escurao;
                     padding-left: 16px;
+
+                    @include theme(dark) {
+                        color: $f0-dark;
+                        border-left: 4px solid $f0-dark;
+                    }
                 }
 
                 i {
-                    color: $c-escurao-dark;
+                    color: $f0;
+
+                    @include theme(dark) {
+                        color: $f0-dark;
+                    }
                 }
 
                 ul {
 
                     a {
                         color: black;
+
+                        @include theme(dark) {}
                     }
                 }
 
@@ -673,18 +884,26 @@ aside {
             a {
                 display: flex;
                 align-items: center;
-                color: $c-escuro-dark;
+                color: $texto;
                 height: 44px;
                 padding: 10px 20px;
 
+                @include theme(dark) {
+                    color: $texto-dark;
+                }
+
                 &:hover {
-                    color: $c-escurao-dark;
-                    background-color: $c-clarao-dark;
+                    color: $f0;
+                    background-color: $c-escurao;
+
+                    @include theme(dark) {
+                        color: $f0-dark;
+                    }
                 }
             }
 
             i {
-                color: $c-claro-dark;
+                color: $c-claro;
                 font-size: $s20;
                 margin-right: 10px;
             }
@@ -699,7 +918,6 @@ aside {
         display: flex;
         flex-direction: column;
         font-size: $s14;
-        color: $c-escuro-dark;
         padding: 0 15px 20px 15px;
 
         p {
@@ -724,27 +942,44 @@ main {
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 6px;
-    border: 1px solid $c-claro-dark;
-    border-color: $borda-dark;
-    background-color: $fundo-claro-dark;
+    border: 1px solid $c-claro;
+    border-color: $borda;
+    background-color: $fundo-claro;
+
+    @include theme(dark) {
+        border-color: $borda-dark;
+        background-color: $fundo-claro-dark;
+    }
 }
 
 .table {
-    color: $f0-dark;
+    color: $f0;
+
+    @include theme(dark) {
+        color: $f0-dark;
+    }
 }
 
 .table-bordered {
 
     td,
     th {
-        border-color: $borda-dark;
+        border-color: $borda;
+
+        @include theme(dark) {
+            border-color: $borda-dark;
+        }
     }
 
     thead {
 
         td,
         th {
-            border-color: $borda-dark;
+            border-color: $borda;
+
+            @include theme(dark) {
+                border-color: $borda-dark;
+            }
         }
     }
 }
@@ -759,17 +994,17 @@ main {
 
     //caminho/fundo da barra
     &::-webkit-scrollbar-track {
-        background: $c-clarao-dark;
+        background: $c-medio;
     }
 
     //barra movel
     &::-webkit-scrollbar-thumb {
         border-radius: 50px;
-        background: $c-claro-dark;
+        background: $c-escuro;
 
         &:hover {
             border-radius: 50px;
-            background: $c-medio-dark;
+            background: $c-escurao;
         }
     }
 }
@@ -779,6 +1014,32 @@ main {
     //barra movel tamanho 
     &::-webkit-scrollbar {
         width: 0.5rem;
+    }
+}
+
+.modal {
+
+    .modal-header,
+    .modal-footer {
+        border-color: inherit;
+        background-color: $fundo-escuro;
+
+        @include theme(dark) {
+            border-color: black;
+            background-color: $fundo-escuro-dark;
+        }
+
+        span {
+            color: $c-clarao;
+        }
+    }
+
+    .modal-body {
+        background-color: $fundo-claro;
+
+        @include theme(dark) {
+            background-color: $fundo-claro-dark;
+        }
     }
 }
 
@@ -794,7 +1055,11 @@ main {
 
         &:checked {
             &+.slider {
-                background-color: $primaria-dark;
+                background-color: $primaria;
+
+                @include theme(dark) {
+                    background-color: $primaria-dark;
+                }
 
                 &:before {
                     @include transform(translateX(15px));
@@ -811,7 +1076,7 @@ main {
         right: 0;
         bottom: 0;
         border-radius: 30px;
-        background-color: $c-claro-dark;
+        background-color: $c-claro;
         @include transition(.4s);
 
         &:before {
@@ -824,6 +1089,10 @@ main {
             border-radius: 50%;
             background-color: white;
             @include transition(.4s);
+
+            @include theme(dark) {
+                background-color: black;
+            }
         }
     }
 }
@@ -861,10 +1130,18 @@ main {
     cursor: pointer;
 
     &:hover {
-        color: $primaria-dark;
+        color: $primaria;
+
+        @include theme(dark) {
+            color: $primaria-dark;
+        }
 
         input~.checkmark {
-            border-color: $primaria-dark;
+            border-color: $primaria;
+
+            @include theme(dark) {
+                border-color: $primaria-dark;
+            }
         }
     }
 
@@ -876,7 +1153,11 @@ main {
         cursor: pointer;
 
         &:checked~.checkmark {
-            border-color: $primaria-dark;
+            border-color: $primaria;
+
+            @include theme(dark) {
+                border-color: $primaria-dark;
+            }
 
             &:after {
                 display: block;
@@ -901,7 +1182,7 @@ main {
     &.radios {
         .checkmark {
             border-radius: 50%;
-            border: 2px solid $c-claro-dark;
+            border: 2px solid $c-claro;
 
             &:after {
                 top: 3px;
@@ -909,7 +1190,11 @@ main {
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
-                background: $primaria-dark;
+                background: $primaria;
+
+                @include theme(dark) {
+                    background: $primaria-dark;
+                }
             }
         }
     }
@@ -917,13 +1202,17 @@ main {
     &.checkbox {
         input {
             &:checked~.checkmark {
-                background-color: $primaria-dark;
+                background-color: $primaria;
+
+                @include theme(dark) {
+                    background-color: $primaria-dark;
+                }
             }
         }
 
         .checkmark {
             border-radius: 4px;
-            border: 2px solid $c-claro-dark;
+            border: 2px solid $c-claro;
 
             &:after {
                 left: 5px;
@@ -933,6 +1222,10 @@ main {
                 border: solid white;
                 border-width: 0 3px 3px 0;
                 @include transform(rotate(45deg));
+
+                @include theme(dark) {
+                    border: solid black;
+                }
             }
         }
     }

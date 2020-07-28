@@ -5,25 +5,36 @@ $c-medio: #999999 !default;
 $c-claro: #cccccc !default;
 $c-clarao: #f1f1f1 !default;
 
-$borda: #ced4da !default;
+$textos: 'Source Sans Pro', sans-serif !default;
+$titulos: 'Montserrat', sans-serif !default;
 
-$textos: 'Source Sans Pro', sans-serif;
-$titulos: 'Montserrat', sans-serif;
+//Light mode
+$primaria: #03A9F4;
+$primaria-hover: darken($primaria, 10%);
+
+$fundo-claro: #f9f9f9;
+$fundo-escuro: #f1f1f1;
+$f0: #000;
+$borda: #ced4da;
+
+$texto: #666666;
+
+$menu-txt: #000;////////////////////////////////////////////////
+$menu-fundo: #000;
+$menu-fundo-hover: #000;
+$menu-clicado: #000;
+
 
 //Dark mode
 $primaria-dark: #03A9F4; 
 $primaria-hover-dark: darken($primaria-dark, 10%);
 
-$c-escurao-dark: #f1f1f1;
-$c-escuro-dark: #ccc;
-$c-medio-dark: #999999;
-$c-claro-dark: #666;
-$c-clarao-dark: #333;
-
 $fundo-claro-dark: #202020;
 $fundo-escuro-dark: #131313;
 $f0-dark: #fff;
 $borda-dark: #444;
+
+$texto-dark: #aaaaaa;
 
 //Responsive breakpoints
 $m575: 575.98px;

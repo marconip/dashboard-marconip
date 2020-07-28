@@ -16,7 +16,7 @@
             }
         }
         @if $theme == light {
-			.red-theme & {
+			.light-theme & {
                 @content;
             }
 		}
