@@ -622,10 +622,10 @@ aside {
         //barra movel
         &::-webkit-scrollbar-thumb {
             border-radius: 50px;
-            background: $c-claro;
+            background-color: $menu-hover;
 
             @include theme(dark) {
-                background: $c-escurao;
+                background-color: $menu-hover-dark;
             }
         }
     }
@@ -687,8 +687,12 @@ aside {
                 &:hover {
                     width: 240px;
                     position: relative;
-                    background-color: $c-escurao;
+                    background-color: $menu-hover;
                     z-index: 2;
+
+                    @include theme(dark) {
+                        background-color: $menu-hover-dark;
+                    }
 
                     ul {
 
@@ -706,15 +710,6 @@ aside {
                             overflow: hidden;
                             text-overflow: ellipsis;
                             margin: 0px;
-                        }
-
-                        &.show {
-                            visibility: visible;
-                            background-color: $fundo-claro;
-
-                            @include theme(dark) {
-                                background-color: $fundo-claro-dark;
-                            }
                         }
                     }
 
@@ -762,10 +757,10 @@ aside {
             flex-direction: column;
             justify-content: space-around;
             padding: 10px;
-            border: 1px solid $borda-dark;
-            background-color: $fundo-claro-dark;
-            box-shadow: 3px -3px 0px rgba(0, 0, 0, 0.2);
+            border: 1px solid $borda;
+            background-color: $fundo-claro;
             @include transition(.35s);
+            box-shadow: 2px -2px 0px rgba(0, 0, 0, 0.2);
 
             @include theme(dark) {
                 border: 1px solid $borda-dark;
@@ -783,129 +778,136 @@ aside {
         }
     }
 
+    //menu-fechado ↑↑
+
     nav {
+
         ul {
-            border-bottom: 1px solid $borda;
+            border-bottom: 1px solid;
+            border-color: $borda;
             margin-bottom: 20px;
 
             @include theme(dark) {
-                border-bottom: 1px solid $borda-dark;
+                border-color: $borda-dark;
+            }
+
+            li {
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: $texto;
+                    height: 44px;
+                    padding: 10px 20px;
+
+                    @include theme(dark) {
+                        color: $texto-dark;
+                    }
+
+                    &:hover {
+                        color: $f0;
+                        background-color: $menu-hover;
+
+                        @include theme(dark) {
+                            color: $f0-dark;
+                            background-color: $menu-hover-dark;
+                        }
+
+                        i {
+                            color: $f0;
+
+                            @include theme(dark) {
+                                color: $f0-dark;
+                            }
+                        }
+                    }
+                }
+
+                i {
+                    color: $menu-txt;
+                    font-size: $s20;
+                    margin-right: 10px;
+
+                    @include theme(dark) {
+                        color: $menu-txt-dark;
+                    }
+                }
+
+                &.active {
+
+                    a {
+                        color: $f0;
+                        border-left: 4px solid $f0;
+                        background-color: $menu-hover;
+                        padding-left: 16px;
+
+                        @include theme(dark) {
+                            color: $f0-dark;
+                            border-left: 4px solid $f0-dark;
+                            background-color: $menu-hover-dark;
+                        }
+                    }
+
+                    i {
+                        color: $f0;
+
+                        @include theme(dark) {
+                            color: $f0-dark;
+                        }
+                    }
+
+                    .icone-chevron-down {
+
+                        &:before {
+                            @include transform(rotate(-180deg));
+                        }
+                    }
+
+                    ul {
+
+                        li {
+
+                            a {
+                                color: inherit !important;
+                                border-left: 0px !important;
+                                padding-left: 50px !important;
+                            }
+
+                            &.active,
+                            &:hover {
+
+                                //SUBMENUS
+                                a {
+                                    color: $f0 !important;
+                                    background-color: $submenu-hover;
+
+                                    @include theme(dark) {
+                                        color: $f0-dark !important;
+                                        background-color: $submenu-hover-dark;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .icone-chevron-down {
+                    font-size: $s14;
+                    font-weight: 600;
+                    text-align: right;
+                    flex: auto;
+                    margin: 0;
+
+                    &:before {
+                        display: inline-block;
+                        @include transition(.35s);
+                    }
+                }
             }
 
             ul {
                 border-bottom: 0px;
                 margin-bottom: 0px;
-
-                li {
-
-                    &.active,
-                    &:hover {
-                        //SUBMENUS
-
-                        a {
-                            color: $f0 !important;
-                            background-color: $c-medio;
-
-                            @include theme(dark) {
-                                color: $f0-dark !important;
-                            }
-
-                            &:hover {
-                                background-color: $c-escuro;
-                            }
-                        }
-                    }
-
-                    a {
-                        border-left: 0px !important;
-                    }
-                }
-
-                a {
-                    color: $c-claro !important;
-                    padding-left: 50px;
-                }
-            }
-        }
-
-        li {
-            &.active {
-
-                a {
-                    color: $f0;
-                    border-left: 4px solid $f0;
-                    background-color: $c-escurao;
-                    padding-left: 16px;
-
-                    @include theme(dark) {
-                        color: $f0-dark;
-                        border-left: 4px solid $f0-dark;
-                    }
-                }
-
-                i {
-                    color: $f0;
-
-                    @include theme(dark) {
-                        color: $f0-dark;
-                    }
-                }
-
-                ul {
-
-                    a {
-                        color: black;
-
-                        @include theme(dark) {}
-                    }
-                }
-
-                .icone-chevron-down {
-
-                    &:before {
-                        @include transform(rotate(-180deg));
-                    }
-                }
-            }
-
-            .icone-chevron-down {
-                font-size: $s14;
-                font-weight: 600;
-                text-align: right;
-                flex: auto;
-                margin: 0;
-
-                &:before {
-                    display: inline-block;
-                    @include transition(.35s);
-                }
-            }
-
-            a {
-                display: flex;
-                align-items: center;
-                color: $texto;
-                height: 44px;
-                padding: 10px 20px;
-
-                @include theme(dark) {
-                    color: $texto-dark;
-                }
-
-                &:hover {
-                    color: $f0;
-                    background-color: $c-escurao;
-
-                    @include theme(dark) {
-                        color: $f0-dark;
-                    }
-                }
-            }
-
-            i {
-                color: $c-claro;
-                font-size: $s20;
-                margin-right: 10px;
             }
         }
     }
