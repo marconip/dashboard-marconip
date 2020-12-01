@@ -1,5 +1,5 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $("[data-toggle='tooltip']").tooltip();
 });
 
 //dark mode On Off
@@ -19,16 +19,27 @@ document.querySelector(".darkmode").onclick = function () {
   }
 };
 
-//textos desenvolvido por
-document.querySelector(".desenvolvimento-mobile").onclick = function () {
-  document.querySelector(".desenvolvimento").classList.toggle('clicado');
-};
+//menu seleciona "ativo" ao click
+var menu = document.querySelectorAll("aside li");
+menu.forEach(function (el) {
+  el.onclick = function () {
+    document.querySelectorAll("aside li").forEach(function (all) {
+      all.classList.remove("active");
+    });
+    if (el.classList.contains("active")) {
+      el.classList.remove(active);
+    } else {
+      el.classList.add("active")
+    }
+  }
+});
 
 //Topo icone-menu abrir fechar lateral
 document.querySelector(".menu-icone").onclick = function () {
-  this.classList.toggle('clicado');
-  document.querySelector("aside").classList.toggle('menu-fechado');
-  document.querySelector(".desenvolvimento").classList.remove('clicado');
+  this.classList.toggle("clicado");
+
+  document.querySelector("aside").classList.toggle("menu-fechado");
+
   if (document.querySelector("aside").classList.contains("menu-fechado")) {
     var showSubmenu = document.querySelectorAll("aside li ul");
     showSubmenu.forEach(function (ell) {
@@ -53,62 +64,70 @@ document.querySelector(".menu-icone").onclick = function () {
   }
 }
 
-//menu seleciona "ativo" ao click
-var menu = document.querySelectorAll("aside li");
-menu.forEach(function (el) {
-  el.onclick = function () {
-    document.querySelectorAll("aside li").forEach(function (all) {
-      all.classList.remove("active");
-    });
-    if (el.classList.contains("active")) {
-      el.classList.remove(active);
-    } else {
-      el.classList.add("active")
-    }
-  }
-});
-
-//menu resolucao
+//menu no tamanho de tela abre e fecha
 resolucao();
 window.onresize = function () {
   resolucao();
 };
 function resolucao(x) {
+  //desktop =992px e acima
   if (window.matchMedia("(min-width: 992px)").matches) {
+    document.querySelector(".busca input").classList.remove("clicado");//campo busca
 
-    document.querySelector("aside").classList.remove('menu-phone');
-    document.querySelector("aside").classList.remove('menu-fechado');
+    document.querySelector("aside").classList.remove("menu-mobilephone");
+    document.querySelector("aside").classList.remove("menu-mobilephone-aberto");
+
+    document.querySelector("aside").classList.remove("menu-fechado");
     document.querySelector(".menu-icone").classList.remove("clicado");
 
-    var submenu = document.querySelectorAll("aside li a");
+    /* var submenu = document.querySelectorAll("aside li a");
     submenu.forEach(function (el) {
       el.setAttribute("data-toggle", "collapse");
       if (el.nextElementSibling !== null) {
         el.nextElementSibling.classList.remove("show");
       }
-    })
+    }) */
   };
 
-  if (window.matchMedia("(max-width: 991px)").matches) {
+  //tablet
+  if (window.matchMedia("(min-width: 576px) and (max-width: 991px)").matches) {
+    document.querySelector(".busca input").classList.remove("clicado");//campo busca
 
-    document.querySelector("aside").classList.remove('menu-phone');
-    document.querySelector(".desenvolvimento").classList.remove('clicado');
-    document.querySelector("aside").classList.add('menu-fechado');
+    document.querySelector("aside").classList.remove("menu-mobilephone");
+    document.querySelector("aside").classList.remove("menu-mobilephone-aberto");
+
+    document.querySelector("aside").classList.add("menu-fechado");
     document.querySelector(".menu-icone").classList.add("clicado");
 
-    var submenu = document.querySelectorAll("aside li a");
-    submenu.forEach(function (el) {
-      el.removeAttribute("data-toggle");
-      if (el.nextElementSibling !== null) {
-        el.nextElementSibling.classList.add("show");
-      }
-    })
+    document.querySelector(".desenvolvimento").classList.remove("clicado");
+
+    /*  var submenu = document.querySelectorAll("aside li a");
+     submenu.forEach(function (el) {
+       el.removeAttribute("data-toggle");
+       if (el.nextElementSibling !== null) {
+         el.nextElementSibling.classList.add("show");
+       }
+     }); */
   };
 
+  //mobilephone 0px a 575px
   if (window.matchMedia("(max-width: 575px)").matches) {
-    document.querySelector("aside").classList.remove('menu-fechado');
-    document.querySelector("aside").classList.add('menu-phone');
-  }
+    //campo de busca
+    document.querySelector(".busca button").onclick = function () {
+      document.querySelector(".busca input").classList.toggle("clicado");
+    };
 
+    document.querySelector("aside").classList.remove("menu-fechado");
+    document.querySelector("aside").classList.add("menu-mobilephone");
+
+    document.querySelector(".menu-icone").onclick = function () {
+      document.querySelector("aside").classList.remove("menu-fechado");
+      document.querySelector("aside").classList.toggle("menu-mobilephone-aberto");
+    }
+  }
 };
 
+//textos desenvolvido por
+document.querySelector(".desenvolvimento-mobile").onclick = function () {
+  document.querySelector(".desenvolvimento").classList.toggle("clicado");
+};

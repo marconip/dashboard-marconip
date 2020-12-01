@@ -5,7 +5,6 @@
 @import "_media.scss";
 @import "_variables.scss";
 
-
 body {
     font-family: $textos;
     color: $texto;
@@ -163,6 +162,7 @@ textarea {
             background-color: $primaria;
 
             @include theme(dark) {
+                color: black;
                 background-color: $primaria-dark;
             }
         }
@@ -353,6 +353,19 @@ header {
             border-radius: 50%;
             cursor: pointer;
 
+            .btn-menu {
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                background-image: url(../img/menu-aberto.svg);
+                background-repeat: no-repeat;
+                background-size: cover;
+
+                @include theme(dark) {
+                    background-image: url(../img/menu-aberto-dark.svg);
+                }
+            }
+
             &:hover {
                 background-color: $primaria;
 
@@ -361,44 +374,29 @@ header {
                 }
 
                 .btn-menu {
-                    background-image: url(../img/menu-light.svg);
+                    background-image: url(../img/menu-aberto-hover.svg);
                 }
             }
 
             &.clicado {
                 .btn-menu {
-                    background-image: url(../img/menu-icons.svg);
+                    background-image: url(../img/menu-fechado.svg) !important;
 
                     @include theme(dark) {
-                        background-image: url(../img/menu-icons-dark.svg);
+                        background-image: url(../img/menu-fechado-dark.svg) !important;
                     }
                 }
 
                 &:hover {
                     background-color: $primaria;
 
-                    @include theme(dark) {
-                        background-color: $primaria-dark;
-                    }
-
                     .btn-menu {
-                        background-image: url(../img/menu-icons-light.svg);
+                        background-image: url(../img/menu-fechado-hover.svg) !important;
                     }
                 }
             }
 
-            .btn-menu {
-                display: inline-block;
-                width: 18px;
-                height: 18px;
-                background-image: url(../img/menu-dark.svg);
-                background-repeat: no-repeat;
-                background-size: cover;
 
-                @include theme(dark) {
-                    background-image: url(../img/menu-light.svg); ////-dark mode
-                }
-            }
         }
     }
 
@@ -421,6 +419,11 @@ header {
             @include theme(dark) {
                 border-color: $borda-dark;
                 background-color: $fundo-claro-dark;
+            }
+
+            @include media(sm-abaixo) {
+                border-color: transparent !important;
+                background-color: transparent !important;
             }
 
             &:hover {
@@ -456,7 +459,10 @@ header {
                 border: 0;
                 box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
                 @include transition(.35s);
-                background-color: $c-escurao;
+
+                @include theme(dark) {
+                    background-color: $c-escurao;
+                }
             }
 
             &.clicado {
@@ -465,10 +471,16 @@ header {
             }
         }
 
-        img {
+        .search {
             width: 18px;
             height: 18px;
             margin: 0 12px 2px 12px;
+            background-size: contain;
+            background-image: url(../img/search.svg);
+
+            @include theme(dark) {
+                background-image: url(../img/search-dark.svg);
+            }
 
             @include media(sm-abaixo) {
                 width: 22px;
@@ -609,11 +621,11 @@ aside {
     overflow: auto;
     white-space: nowrap;
     @include transition(.20s);
-    border-right: 1px solid transparent;
+    border-right: 1px solid;
+    border-color: transparent;
     background-color: $fundo-claro;
 
     @include theme(dark) {
-        border-color: $borda-dark;
         background-color: $fundo-claro-dark;
     }
 
@@ -643,14 +655,16 @@ aside {
             background: $fundo-claro-dark;
         }
     }
-
-    &.menu-phone {
-        position: absolute;
+    
+    &.menu-mobilephone {
         left: -241px;
+        position: absolute;
+        top: 58px;
         z-index: 4;
+        box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         @include transition(.20s);
 
-        &.menu-phone-aberto {
+        &.menu-mobilephone-aberto {
             left: 0;
         }
     }
@@ -659,6 +673,11 @@ aside {
         width: 60px;
         overflow: hidden;
         @include transition(.20s);
+        border-color: $borda;
+
+        @include theme(dark) {
+            border-color: $borda-dark;
+        }
 
         nav {
             position: absolute;
@@ -1193,10 +1212,6 @@ main {
                 height: 10px;
                 border-radius: 50%;
                 background: $primaria;
-
-                @include theme(dark) {
-                    background: $primaria-dark;
-                }
             }
         }
     }
@@ -1224,10 +1239,6 @@ main {
                 border: solid white;
                 border-width: 0 3px 3px 0;
                 @include transform(rotate(45deg));
-
-                @include theme(dark) {
-                    border: solid black;
-                }
             }
         }
     }
