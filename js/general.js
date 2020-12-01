@@ -38,7 +38,11 @@ menu.forEach(function (el) {
 document.querySelector(".menu-icone").onclick = function () {
   this.classList.toggle("clicado");
 
-  document.querySelector("aside").classList.toggle("menu-fechado");
+  if (document.querySelector("aside").classList.contains("menu-mobilephone")) {
+    document.querySelector("aside").classList.toggle("menu-mobilephone-aberto");
+  } else {
+    document.querySelector("aside").classList.toggle("menu-fechado");
+  }
 
   if (document.querySelector("aside").classList.contains("menu-fechado")) {
     var showSubmenu = document.querySelectorAll("aside li ul");
@@ -114,16 +118,12 @@ function resolucao(x) {
   if (window.matchMedia("(max-width: 575px)").matches) {
     //campo de busca
     document.querySelector(".busca button").onclick = function () {
+      document.querySelector("aside").classList.remove("menu-mobilephone-aberto");
       document.querySelector(".busca input").classList.toggle("clicado");
     };
 
     document.querySelector("aside").classList.remove("menu-fechado");
     document.querySelector("aside").classList.add("menu-mobilephone");
-
-    document.querySelector(".menu-icone").onclick = function () {
-      document.querySelector("aside").classList.remove("menu-fechado");
-      document.querySelector("aside").classList.toggle("menu-mobilephone-aberto");
-    }
   }
 };
 
