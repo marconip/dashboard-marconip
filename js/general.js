@@ -43,30 +43,7 @@ document.querySelector(".menu-icone").onclick = function () {
   } else {
     document.querySelector("aside").classList.toggle("menu-fechado");
   }
-
-  if (document.querySelector("aside").classList.contains("menu-fechado")) {
-    var showSubmenu = document.querySelectorAll("aside li ul");
-    showSubmenu.forEach(function (ell) {
-      ell.classList.add("show");
-    });
-    var submenus = document.querySelectorAll("aside li a");
-    submenus.forEach(function (ele) {
-      ele.removeAttribute("data-toggle");
-    });
-  } else {
-    var showSubmenu = document.querySelectorAll("aside li ul");
-    showSubmenu.forEach(function (ell) {
-      ell.classList.remove("show");
-      if (ell.parentElement.classList.contains("active")) {
-        ell.classList.add("show");
-      }
-    });
-    var submenus = document.querySelectorAll("aside li a");
-    submenus.forEach(function (ele) {
-      ele.setAttribute("data-toggle", "collapse");
-    });
-  }
-}
+};
 
 //menu no tamanho de tela abre e fecha
 resolucao();
@@ -83,14 +60,6 @@ function resolucao(x) {
 
     document.querySelector("aside").classList.remove("menu-fechado");
     document.querySelector(".menu-icone").classList.remove("clicado");
-
-    /* var submenu = document.querySelectorAll("aside li a");
-    submenu.forEach(function (el) {
-      el.setAttribute("data-toggle", "collapse");
-      if (el.nextElementSibling !== null) {
-        el.nextElementSibling.classList.remove("show");
-      }
-    }) */
   };
 
   //tablet
@@ -105,13 +74,20 @@ function resolucao(x) {
 
     document.querySelector(".desenvolvimento").classList.remove("clicado");
 
-    /*  var submenu = document.querySelectorAll("aside li a");
-     submenu.forEach(function (el) {
-       el.removeAttribute("data-toggle");
-       if (el.nextElementSibling !== null) {
-         el.nextElementSibling.classList.add("show");
-       }
-     }); */
+    if (document.querySelector("aside").classList.contains("menu-fechado")) {
+      var showSubmenu = document.querySelectorAll("aside li ul.collapse");
+      showSubmenu.forEach(function (ell) {
+        ell.classList.add("show");
+        ell.style.outline = "1px solid red";
+      });
+
+    } else {
+      var showSubmenu = document.querySelectorAll("aside li ul.collapse");
+      showSubmenu.forEach(function (ell) {
+        ell.classList.remove("show");
+        ell.style.outline = "1px solid green";
+      });
+    }
   };
 
   //mobilephone 0px a 575px

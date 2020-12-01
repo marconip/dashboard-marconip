@@ -655,7 +655,7 @@ aside {
             background: $fundo-claro-dark;
         }
     }
-    
+
     &.menu-mobilephone {
         left: -241px;
         position: absolute;
@@ -685,13 +685,14 @@ aside {
 
             ul {
                 border: 0px;
+                @include transition(none);
 
                 ul {
                     position: absolute;
                     left: 60px;
                     z-index: 1;
                     width: 180px;
-                    visibility: hidden;
+                    
                 }
             }
 
@@ -713,14 +714,24 @@ aside {
                         background-color: $menu-hover-dark;
                     }
 
+                    .collapse {
+                        visibility: visible;
+                        background-color: $fundo-claro;
+
+                        &:not(.show) {
+                            display: block;
+                            background-color: $fundo-claro;
+                        }
+                    }
+
                     ul {
 
                         li {
                             width: 180px;
-                        }
 
-                        a {
-                            padding-left: 10px;
+                            a {
+                                padding-left: 10px !important;
+                            }
                         }
 
                         span {
@@ -886,11 +897,7 @@ aside {
 
                         li {
 
-                            a {
-                                color: inherit !important;
-                                border-left: 0px !important;
-                                padding-left: 50px !important;
-                            }
+
 
                             &.active,
                             &:hover {
@@ -906,6 +913,16 @@ aside {
                                     }
                                 }
                             }
+                        }
+                    }
+                }
+
+                ul {
+                    li {
+                        a {
+                            color: inherit !important;
+                            border-left: 0px !important;
+                            padding-left: 50px !important;
                         }
                     }
                 }
