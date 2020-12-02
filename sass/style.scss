@@ -682,6 +682,7 @@ aside {
         nav {
             position: absolute;
             left: 0;
+            z-index: 2;
 
             ul {
                 border: 0px;
@@ -692,7 +693,7 @@ aside {
                     left: 60px;
                     z-index: 1;
                     width: 180px;
-                    
+
                 }
             }
 
@@ -700,7 +701,7 @@ aside {
 
                 &.active {
                     a {
-                        background-color: transparent;
+                        background-color: transparent!important;
                     }
                 }
 
@@ -716,11 +717,19 @@ aside {
 
                     .collapse {
                         visibility: visible;
-                        background-color: $fundo-claro;
+                        background-color: $menu-hover;
+
+                        @include theme(dark) {
+                            background-color: $fundo-claro-dark;
+                        }
 
                         &:not(.show) {
                             display: block;
-                            background-color: $fundo-claro;
+                            background-color: $menu-hover;
+
+                            @include theme(dark) {
+                                background-color: $fundo-claro-dark;
+                            }
                         }
                     }
 
@@ -851,6 +860,16 @@ aside {
                             }
                         }
                     }
+
+                    &[aria-expanded="true"] {
+
+                        .icone-chevron-down {
+
+                            &:before {
+                                @include transform(rotate(-180deg));
+                            }
+                        }
+                    }
                 }
 
                 i {
@@ -883,13 +902,6 @@ aside {
 
                         @include theme(dark) {
                             color: $f0-dark;
-                        }
-                    }
-
-                    .icone-chevron-down {
-
-                        &:before {
-                            @include transform(rotate(-180deg));
                         }
                     }
 

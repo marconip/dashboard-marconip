@@ -2,19 +2,28 @@ $(function () {
   $("[data-toggle='tooltip']").tooltip();
 });
 
-//dark mode On Off
+//MODO DO TEMA On Off
+var dashboard = document.querySelector("body");
+var onoff = document.querySelector(".darkmode p");
+//identificar tema e mudar aparência
+window.onload = function () {
+  if (dashboard.classList.contains("dark-theme")) {
+    onoff.classList.remove("text-danger");
+    onoff.classList.add("text-warning");
+    onoff.innerHTML = "On";
+  }
+};
+//mudar tema ao click de escolha
 document.querySelector(".darkmode").onclick = function () {
-  var dashboard = document.querySelector("body");
-  var onoff = document.querySelector(".darkmode p");
-  if (dashboard.classList.contains("dark-theme") && onoff.classList.contains("text-success")) {//DARK
+  if (dashboard.classList.contains("dark-theme") && onoff.classList.contains("text-warning")) {//DARK
     dashboard.classList.remove("dark-theme");
-    onoff.classList.remove("text-success");
+    onoff.classList.remove("text-warning");
     onoff.classList.add("text-danger");
     onoff.innerHTML = "Off";
   } else {//LIGHT
     dashboard.classList.add("dark-theme");
     onoff.classList.remove("text-danger");
-    onoff.classList.add("text-success");
+    onoff.classList.add("text-warning");
     onoff.innerHTML = "On";
   }
 };
@@ -38,6 +47,13 @@ menu.forEach(function (el) {
 document.querySelector(".menu-icone").onclick = function () {
   this.classList.toggle("clicado");
 
+  if (window.matchMedia("(min-width: 576px) and (max-width: 991px)").matches && document.querySelector("aside").classList.contains("menu-fechado")) {
+    var showSubmenu = document.querySelectorAll("aside ul.collapse");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.remove("show");
+    });
+  }
+
   if (document.querySelector("aside").classList.contains("menu-mobilephone")) {
     document.querySelector("aside").classList.toggle("menu-mobilephone-aberto");
   } else {
@@ -45,7 +61,7 @@ document.querySelector(".menu-icone").onclick = function () {
   }
 };
 
-//menu no tamanho de tela abre e fecha
+//menu no TAMANHO/RESOLUÇÃO de tela (abre e fecha lateral)
 resolucao();
 window.onresize = function () {
   resolucao();
@@ -60,6 +76,16 @@ function resolucao(x) {
 
     document.querySelector("aside").classList.remove("menu-fechado");
     document.querySelector(".menu-icone").classList.remove("clicado");
+
+    var showSubmenu = document.querySelectorAll("aside ul.collapse");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.remove("show");
+    });
+
+    var submenuActive = document.querySelectorAll("aside li.active ul");
+    submenuActive.forEach(function (ell) {
+      ell.classList.add("show");
+    });
   };
 
   //tablet
@@ -74,20 +100,10 @@ function resolucao(x) {
 
     document.querySelector(".desenvolvimento").classList.remove("clicado");
 
-    if (document.querySelector("aside").classList.contains("menu-fechado")) {
-      var showSubmenu = document.querySelectorAll("aside li ul.collapse");
-      showSubmenu.forEach(function (ell) {
-        ell.classList.add("show");
-        ell.style.outline = "1px solid red";
-      });
-
-    } else {
-      var showSubmenu = document.querySelectorAll("aside li ul.collapse");
-      showSubmenu.forEach(function (ell) {
-        ell.classList.remove("show");
-        ell.style.outline = "1px solid green";
-      });
-    }
+    var showSubmenu = document.querySelectorAll("aside ul.collapse");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.add("show");
+    });
   };
 
   //mobilephone 0px a 575px
@@ -100,7 +116,17 @@ function resolucao(x) {
 
     document.querySelector("aside").classList.remove("menu-fechado");
     document.querySelector("aside").classList.add("menu-mobilephone");
-  }
+
+    var showSubmenu = document.querySelectorAll("aside ul.collapse");
+    showSubmenu.forEach(function (ell) {
+      ell.classList.remove("show");
+    });
+    var submenuActive = document.querySelectorAll("aside li.active ul");
+    submenuActive.forEach(function (ell) {
+      ell.classList.add("show");
+    });
+  };
+
 };
 
 //textos desenvolvido por
