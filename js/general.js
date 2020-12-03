@@ -35,13 +35,18 @@ menu.forEach(function (el) {
     document.querySelectorAll("aside li").forEach(function (all) {
       all.classList.remove("active");
     });
-    if (el.classList.contains("active")) {
-      el.classList.remove(active);
-    } else {
-      el.classList.add("active")
-    }
+    el.classList.add("active");
   }
 });
+/* var menuss = document.querySelectorAll("aside .menu2 li");
+menuss.forEach(function (el) {
+  el.onclick = function () {
+    document.querySelectorAll("aside .menu2 li").forEach(function (all) {
+      all.classList.remove("active2");
+    });
+    el.classList.add("active2");
+  }
+}); */
 
 //Topo icone-menu abrir fechar lateral
 document.querySelector(".menu-icone").onclick = function () {
