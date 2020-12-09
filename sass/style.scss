@@ -909,23 +909,6 @@ aside {
 
                         li {
 
-                            &.active2 {
-
-                                a {
-                                    color: $f0!important;
-                                    text-decoration: underline;
-                                    border-left: 4px solid $f0;
-                                    background-color: $menu-hover;
-                                    padding-left: 16px;
-            
-                                    @include theme(dark) {
-                                        color: $f0-dark!important;
-                                        text-decoration: underline;
-                                        border-left: 4px solid $f0-dark;
-                                        background-color: $menu-hover-dark;
-                                    }
-                                } 
-
                             &.active,
                             &:hover {
 
@@ -945,14 +928,6 @@ aside {
                 }
 
                 ul {
-                    /* &.show {
-                        background-color: $menu-hover;
-
-                        @include theme(dark) {
-                            background-color: $menu-hover-dark;
-                        }
-                    } */
-
                     li {
                         a {
                             color: inherit !important;
