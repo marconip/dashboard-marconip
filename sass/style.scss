@@ -606,7 +606,7 @@ header {
 }
 
 .conteudo {
-    display: flex;
+    display: flex; 
     min-height: calc(100vh - 56px);
 }
 
@@ -699,7 +699,7 @@ aside {
 
             li {
 
-                &.active {
+                &.ativo {
                     a {
                         background-color: transparent !important;
                     }
@@ -882,7 +882,7 @@ aside {
                     }
                 }
 
-                &.active {
+                &.ativo {
 
                     a {
                         color: $f0;
@@ -909,7 +909,7 @@ aside {
 
                         li {
 
-                            &.active,
+                            &.ativo,
                             &:hover {
 
                                 //SUBMENUS

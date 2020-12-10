@@ -29,24 +29,15 @@ document.querySelector(".darkmode").onclick = function () {
 };
 
 //menu seleciona "ativo" ao click
-var menu = document.querySelectorAll("aside ul > li");
+var menu = document.querySelectorAll("aside ul li");
 menu.forEach(function (el) {
   el.onclick = function () {
-    document.querySelectorAll("aside ul > li").forEach(function (all) {
+    document.querySelectorAll("aside ul li").forEach(function (all) {
       all.removeAttribute("class");
     });
-    el.classList.add("active");
+    el.classList.add("ativo");
   }
 });
-/* var menuss = document.querySelectorAll("aside ul > li.active li");
-menuss.forEach(function (els) {
-  els.onclick = function () {
-    document.querySelectorAll("aside ul > li.active li").forEach(function (alls) {
-      alls.removeAttribute("class");
-    });
-    els.classList.add("active");
-  }
-}); */
 
 //Topo icone-menu abrir fechar lateral
 document.querySelector(".menu-icone").onclick = function () {
