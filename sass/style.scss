@@ -336,7 +336,7 @@ header {
         background: $fundo-claro-dark;
     }
 
-    .menu {
+    .icone-menu {
         display: flex;
         justify-content: start;
         align-items: center;
@@ -606,7 +606,7 @@ header {
 }
 
 .conteudo {
-    display: flex; 
+    display: flex;
     min-height: calc(100vh - 56px);
 }
 
@@ -681,8 +681,7 @@ aside {
 
         nav {
             position: absolute;
-            left: 0;
-            z-index: 2;
+            left: 0;            
 
             ul {
                 border: 0px;
@@ -693,7 +692,6 @@ aside {
                     left: 60px;
                     z-index: 1;
                     width: 180px;
-
                 }
             }
 
@@ -710,6 +708,7 @@ aside {
                     position: relative;
                     background-color: $menu-hover;
                     z-index: 2;
+                    visibility: visible;
 
                     @include theme(dark) {
                         background-color: $menu-hover-dark;
@@ -815,6 +814,28 @@ aside {
                 @include transition(.35s);
             }
         }
+
+        .submenu {
+            li {
+                &:hover {
+                    a {
+                        background-color: $submenu-hover !important;
+
+                        @include theme(dark) {
+                            background-color: $submenu-hover-dark !important;
+                        }
+
+                        span {
+                            color: $f0;
+
+                            @include theme(dark) {
+                                color: $f0-dark;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     //menu-fechado ↑↑
@@ -895,7 +916,7 @@ aside {
                             border-left: 4px solid $f0-dark;
                             background-color: $menu-hover-dark;
                         }
-                    } 
+                    }
 
                     i {
                         color: $f0;
@@ -1078,7 +1099,7 @@ main {
         }
 
         span {
-            color: $c-clarao;
+            color: $primaria;
         }
     }
 
