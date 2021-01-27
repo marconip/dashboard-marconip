@@ -169,3 +169,36 @@ for (let menuAtivo of document.querySelectorAll(".menu")) {
     menuAtivo.classList.add("ativo");
   });
 };
+
+//Parar rolagem topo
+var main = document.querySelector("main");
+var aside = document.querySelector("aside");
+var header = document.querySelector("header");
+var headerOnOff = document.querySelector(".header-fixed p");
+
+document.querySelector(".header-fixed").onclick = function () {
+  if (
+    header.classList.contains("fixed")
+  ) {
+    //FIXED off - acompanha a página para cima
+    dashboard.style.paddingTop = "0px";
+    header.style.position = "initial";
+    header.style.marginBottom = "2px";
+    main.style.height = "initial";
+    aside.style.height = "initial";
+    headerOnOff.classList.remove("text-warning");
+    headerOnOff.classList.add("text-danger");
+    headerOnOff.innerHTML = "Off";
+    header.classList.remove("fixed");
+  } else {
+    //FIXED on - fica parado no topo
+    dashboard.removeAttribute("style");
+    header.removeAttribute("style");
+    main.removeAttribute("style");
+    aside.removeAttribute("style");
+    headerOnOff.classList.remove("text-warning");
+    headerOnOff.classList.add("text-danger");
+    headerOnOff.innerHTML = "On";
+    header.classList.add("fixed");
+  }
+};

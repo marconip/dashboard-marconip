@@ -154,6 +154,7 @@ textarea {
     .dropdown-item {
         display: flex;
         align-items: center;
+        justify-content: space-between; 
         padding-left: 10px;
         padding-right: 10px;
 
@@ -770,10 +771,7 @@ aside {
         .desenvolvimento-mobile {
             display: block;
             font-size: 22px;
-            padding: 20px 0px 5px 15px;
-            position: absolute;
-            bottom: 15px;
-            z-index: 2;
+            padding: 100px 0px 5px 20px;
             cursor: pointer;
 
             &:hover {
