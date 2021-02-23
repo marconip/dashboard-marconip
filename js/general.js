@@ -53,7 +53,7 @@ document.querySelector(".menu-icone").onclick = function () {
     document.querySelector("aside").classList.toggle("menu-fechado");
   }
 
-  var menuSubmenu = document.querySelectorAll(".menu.ativo a");
+  /* var menuSubmenu = document.querySelectorAll(".menu.ativo a");
   menuSubmenu.forEach(function (menuSubmenu_A) {
     menuSubmenu_A.setAttribute("aria-expanded", "true");
   });
@@ -61,7 +61,21 @@ document.querySelector(".menu-icone").onclick = function () {
   var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
   menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
     menuSubmenu_Aul.classList.add("show");
-  });
+  }); */
+
+  ////////
+  if (document.querySelector("aside").classList.contains("menu-fechado")) {
+    var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
+    menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
+      menuSubmenu_Aul.classList.remove("show");
+    });
+  } else {
+    var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
+    menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
+      menuSubmenu_Aul.classList.add("show");
+    });
+  }
+  ///////
 };
 
 //menu no TAMANHO/RESOLUÇÃO de tela (abre e fecha lateral)
@@ -105,7 +119,7 @@ function resolucao(x) {
 
     var showSubmenu = document.querySelectorAll("aside ul.collapse");
     showSubmenu.forEach(function (ell) {
-      ell.classList.add("show");
+      ell.classList.remove("show");
     });
   }
 
@@ -190,15 +204,17 @@ document.querySelector(".header-fixed").onclick = function () {
     headerOnOff.classList.add("text-danger");
     headerOnOff.innerHTML = "Off";
     header.classList.remove("fixed");
+    header.classList.add("no-fixed");
   } else {
     //FIXED on - fica parado no topo
     dashboard.removeAttribute("style");
     header.removeAttribute("style");
     main.removeAttribute("style");
     aside.removeAttribute("style");
-    headerOnOff.classList.remove("text-warning");
-    headerOnOff.classList.add("text-danger");
+    headerOnOff.classList.remove("text-danger");
+    headerOnOff.classList.add("text-warning");
     headerOnOff.innerHTML = "On";
+    header.classList.remove("no-fixed");
     header.classList.add("fixed");
   }
 };

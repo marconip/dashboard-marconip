@@ -147,6 +147,10 @@ textarea {
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
     background-color: $fundo-claro;
 
+    /* &.show {
+        transform: translate3d(-85px, 49px, 0px) !important;
+    } */
+
     @include theme(dark) {
         background-color: $fundo-claro-dark;
     }
@@ -154,7 +158,7 @@ textarea {
     .dropdown-item {
         display: flex;
         align-items: center;
-        justify-content: space-between; 
+        justify-content: space-between;
         padding-left: 10px;
         padding-right: 10px;
 
@@ -329,7 +333,7 @@ textarea {
 header {
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     background: $fundo-claro;
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
 
@@ -456,9 +460,11 @@ header {
                 position: fixed !important;
                 top: 55px;
                 left: -25px;
+                z-index: 1;
                 border-radius: 0;
                 border: 0;
                 box-shadow: 0 2px 0 rgba(0, 0, 0, .2);
+                background-color: darken($fundo-escuro, 3%);
                 @include transition(.35s);
 
                 @include theme(dark) {
@@ -595,6 +601,21 @@ header {
             }
         }
     }
+
+    &.no-fixed {
+
+        .config {
+            @include media(md-abaixo) {
+                transform: translate3d(-85px, 45px, 0px) !important;
+            }
+        }
+
+        .config-perfil {
+            @include media(md-abaixo) {
+                transform: translate3d(-105px, 45px, 0px) !important;
+            }
+        }
+    }
 }
 
 .pag-titulo {
@@ -619,12 +640,13 @@ aside {
     width: 240px;
     padding: 15px 0;
     height: calc(100vh - 56px);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     white-space: nowrap;
-    @include transition(.20s);
     border-right: 1px solid;
     border-color: transparent;
     background-color: $fundo-claro;
+    @include transition(.20s);
 
     @include theme(dark) {
         background-color: $fundo-claro-dark;
@@ -671,18 +693,46 @@ aside {
     }
 
     &.menu-fechado {
-        width: 60px;
-        overflow: hidden;
-        @include transition(.20s);
+        position: absolute;
+        z-index: 1;
+        width: 56px;
+        height: auto;
         border-color: $borda;
+        @include transition(.20s);
 
         @include theme(dark) {
             border-color: $borda-dark;
         }
 
+        @include media(lg-acima) {
+            .submenu {
+                &.show {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                width: 240px;
+
+                .submenu {
+                    &.show {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+
+        &+main {
+            padding-left: 80px;
+        }
+
+
+
+        /* 
         nav {
             position: absolute;
-            left: 0;            
+            left: 0;
 
             ul {
                 border: 0px;
@@ -834,6 +884,10 @@ aside {
                 }
             }
         }
+
+        & + main {
+            height: auto;
+        } */
     }
 
     //menu-fechado ↑↑
@@ -856,7 +910,7 @@ aside {
                     align-items: center;
                     color: $texto;
                     height: 44px;
-                    padding: 10px 20px;
+                    padding: $s10 $s10 $s10 $s20;
 
                     @include theme(dark) {
                         color: $texto-dark;
@@ -894,7 +948,7 @@ aside {
                 i {
                     color: $menu-txt;
                     font-size: $s20;
-                    margin-right: 10px;
+                    margin-right: $s15;
 
                     @include theme(dark) {
                         color: $menu-txt-dark;
@@ -951,7 +1005,7 @@ aside {
                         a {
                             color: inherit !important;
                             border-left: 0px !important;
-                            padding-left: 50px !important;
+                            padding-left: $s50 + $s5 !important;
                         }
                     }
                 }
