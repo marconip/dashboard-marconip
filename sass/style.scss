@@ -147,10 +147,6 @@ textarea {
     box-shadow: 0px 2px 0px rgba(0, 0, 0, .2);
     background-color: $fundo-claro;
 
-    /* &.show {
-        transform: translate3d(-85px, 49px, 0px) !important;
-    } */
-
     @include theme(dark) {
         background-color: $fundo-claro-dark;
     }
@@ -400,8 +396,6 @@ header {
                     }
                 }
             }
-
-
         }
     }
 
@@ -638,6 +632,7 @@ aside {
     justify-content: space-between;
     align-content: space-between;
     width: 240px;
+    margin: 0px;
     padding: 15px 0;
     height: calc(100vh - 56px);
     overflow-x: hidden;
@@ -650,6 +645,13 @@ aside {
 
     @include theme(dark) {
         background-color: $fundo-claro-dark;
+    }
+
+    @include media(md) {
+        position: absolute;
+        z-index: 2;
+        margin-top: 2px;
+        border-color: $borda;
     }
 
     &:hover {
@@ -692,11 +694,19 @@ aside {
         }
     }
 
+    .desenvolvimento {
+        font-size: $s14;
+        padding: $s50 $s20 $s20 $s20;
+
+        p {
+            margin: 0px;
+        }
+    }
+
     &.menu-fechado {
         position: absolute;
         z-index: 1;
         width: 56px;
-        height: auto;
         border-color: $borda;
         @include transition(.20s);
 
@@ -704,7 +714,7 @@ aside {
             border-color: $borda-dark;
         }
 
-        @include media(lg-acima) {
+        @include media(md-acima) {
             .submenu {
                 &.show {
                     display: none;
@@ -722,174 +732,20 @@ aside {
             }
         }
 
-
-        &+main {
-            padding-left: 80px;
-        }
-
-
-
-        /* 
-        nav {
-            position: absolute;
-            left: 0;
-
-            ul {
-                border: 0px;
-                @include transition(none);
-
-                ul {
-                    position: absolute;
-                    left: 60px;
-                    z-index: 1;
-                    width: 180px;
-                }
-            }
-
-            li {
-
-                &.ativo {
-                    a {
-                        background-color: transparent !important;
-                    }
-                }
-
-                &:hover {
-                    width: 240px;
-                    position: relative;
-                    background-color: $menu-hover;
-                    z-index: 2;
-                    visibility: visible;
-
-                    @include theme(dark) {
-                        background-color: $menu-hover-dark;
-                    }
-
-                    .collapse {
-                        visibility: visible;
-                        background-color: $menu-hover;
-
-                        @include theme(dark) {
-                            background-color: $fundo-claro-dark;
-                        }
-
-                        &:not(.show) {
-                            display: block;
-                            background-color: $menu-hover;
-
-                            @include theme(dark) {
-                                background-color: $fundo-claro-dark;
-                            }
-                        }
-                    }
-
-                    ul {
-
-                        li {
-                            width: 180px;
-
-                            a {
-                                padding-left: 10px !important;
-                            }
-                        }
-
-                        span {
-                            visibility: visible;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
-                            margin: 0px;
-                        }
-                    }
-
-                    span {
-                        visibility: visible;
-                    }
-                }
-
-                span {
-                    visibility: hidden;
-                    margin-left: 20px;
-
-                    &+span {
-                        display: none;
-                    }
-                }
-            }
-        }
-
-        .desenvolvimento-mobile {
-            display: block;
-            font-size: 22px;
-            padding: 100px 0px 5px 20px;
-            cursor: pointer;
-
-            &:hover {
-                color: $primaria;
-
-                @include theme(dark) {
-                    color: $primaria-dark;
-                }
+        &:hover {
+            .desenvolvimento {
+                display: block;
             }
         }
 
         .desenvolvimento {
-            position: absolute;
-            left: -100%;
-            bottom: 0px;
-            z-index: 1;
-            width: 220px;
-            height: 200px;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 10px;
-            border: 1px solid $borda;
-            background-color: $fundo-claro;
-            @include transition(.35s);
-            box-shadow: 2px -2px 0px rgba(0, 0, 0, 0.2);
-
-            @include theme(dark) {
-                border: 1px solid $borda-dark;
-                background-color: $fundo-claro-dark;
-            }
-
-            .divisor {
-                display: none;
-            }
-
-            &.clicado {
-                left: 59px;
-                @include transition(.35s);
-            }
+            display: none;
         }
 
-        .submenu {
-            li {
-                &:hover {
-                    a {
-                        background-color: $submenu-hover !important;
-
-                        @include theme(dark) {
-                            background-color: $submenu-hover-dark !important;
-                        }
-
-                        span {
-                            color: $f0;
-
-                            @include theme(dark) {
-                                color: $f0-dark;
-                            }
-                        }
-                    }
-                }
-            }
+        &+main {
+            padding-left: 80px;
         }
-
-        & + main {
-            height: auto;
-        } */
     }
-
     //menu-fechado ↑↑
 
     nav {
@@ -1034,17 +890,6 @@ aside {
     .desenvolvimento-mobile {
         display: none;
     }
-
-    .desenvolvimento {
-        display: flex;
-        flex-direction: column;
-        font-size: $s14;
-        padding: 0 15px 20px 15px;
-
-        p {
-            margin: 0px;
-        }
-    }
 }
 
 main {
@@ -1057,6 +902,10 @@ main {
     flex-grow: 1;
     overflow: auto;
     padding: 20px 30px;
+
+    @include media(md) {
+        padding-left: 80px;
+    }
 }
 
 .painel {
