@@ -437,6 +437,7 @@ header {
                 background-color: transparent;
                 border-color: transparent;
                 padding: 0;
+                z-index: 1 !important;
 
                 &:hover,
                 &:focus,
@@ -598,6 +599,12 @@ header {
 
     &.no-fixed {
 
+        &+.conteudo {
+            .menu-mobilephone-aberto {
+                position: absolute;
+            }
+        }
+
         .config {
             @include media(md-abaixo) {
                 transform: translate3d(-85px, 45px, 0px) !important;
@@ -647,13 +654,6 @@ aside {
         background-color: $fundo-claro-dark;
     }
 
-    @include media(md) {
-        position: absolute;
-        z-index: 2;
-        margin-top: 2px;
-        border-color: $borda;
-    }
-
     &:hover {
 
         //barra movel
@@ -683,14 +683,16 @@ aside {
 
     &.menu-mobilephone {
         left: -241px;
-        position: absolute;
-        top: 58px;
-        z-index: 4;
+        position: fixed;
+        top: 56px;
+        z-index: 1;
         box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
         @include transition(.20s);
 
         &.menu-mobilephone-aberto {
             left: 0;
+            min-height: 100%;
+            height: 100% !important;
         }
     }
 
@@ -704,8 +706,6 @@ aside {
     }
 
     &.menu-fechado {
-        position: absolute;
-        z-index: 1;
         width: 56px;
         border-color: $borda;
         @include transition(.20s);
@@ -741,11 +741,8 @@ aside {
         .desenvolvimento {
             display: none;
         }
-
-        &+main {
-            padding-left: 80px;
-        }
     }
+
     //menu-fechado ↑↑
 
     nav {
@@ -902,10 +899,6 @@ main {
     flex-grow: 1;
     overflow: auto;
     padding: 20px 30px;
-
-    @include media(md) {
-        padding-left: 80px;
-    }
 }
 
 .painel {
