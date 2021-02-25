@@ -37,45 +37,11 @@ document.querySelector(".darkmode").onclick = function () {
 document.querySelector(".menu-icone").onclick = function () {
   this.classList.toggle("clicado");
 
-  /* if (
-    window.matchMedia("(min-width: 576px) and (max-width: 991px)").matches &&
-    document.querySelector("aside").classList.contains("menu-fechado")
-  ) {
-    var showSubmenu = document.querySelectorAll("aside ul.collapse");
-    showSubmenu.forEach(function (ell) {
-      ell.classList.remove("show");
-    });
-  } */
-
   if (document.querySelector("aside").classList.contains("menu-mobilephone")) {
     document.querySelector("aside").classList.toggle("menu-mobilephone-aberto");
   } else {
     document.querySelector("aside").classList.toggle("menu-fechado");
   }
-
-  /* var menuSubmenu = document.querySelectorAll(".menu.ativo a");
-  menuSubmenu.forEach(function (menuSubmenu_A) {
-    menuSubmenu_A.setAttribute("aria-expanded", "true");
-  });
-
-  var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
-  menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
-    menuSubmenu_Aul.classList.add("show");
-  }); */
-
-  /* ////////
-  if (document.querySelector("aside").classList.contains("menu-fechado")) {
-    var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
-    menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
-      menuSubmenu_Aul.classList.remove("show");
-    });
-  } else {
-    var menuSubmenu_ul = document.querySelectorAll(".menu a[aria-expanded='true'] + ul");
-    menuSubmenu_ul.forEach(function (menuSubmenu_Aul) {
-      menuSubmenu_Aul.classList.add("show");
-    });
-  }
-  /////// */
 };
 
 //menu no TAMANHO/RESOLUÇÃO de tela (abre e fecha lateral)
@@ -117,11 +83,6 @@ function resolucao(x) {
 
     document.querySelector(".desenvolvimento").classList.remove("clicado");
 
-    /*  var showSubmenu = document.querySelectorAll("aside ul.collapse");
-     showSubmenu.forEach(function (ell) {
-       ell.classList.remove("show");
-     }); */
-
     document.querySelector('aside').onclick = function () {
       if (document.querySelector('aside').classList.contains("menu-fechado")) {
         document.querySelector('aside').classList.toggle("menu-fechado");
@@ -154,22 +115,8 @@ function resolucao(x) {
       document.querySelector('aside').classList.remove("menu-mobilephone-aberto");
       document.querySelector(".menu-icone").classList.remove("clicado");
     }
-    /* 
-        var showSubmenu = document.querySelectorAll("aside ul.collapse");
-        showSubmenu.forEach(function (ell) {
-          ell.classList.remove("show");
-        });
-        var submenuativo = document.querySelectorAll("aside li.ativo ul");
-        submenuativo.forEach(function (ell) {
-          ell.classList.add("show");
-        }); */
   }
-}
-
-//textos desenvolvido por
-/* document.querySelector(".desenvolvimento-mobile").onclick = function () {
-  document.querySelector(".desenvolvimento").classList.toggle("clicado");
-}; */
+};
 
 //menu seleciona "ativo" ao click
 const submenus = document.querySelectorAll(".submenu > li");
